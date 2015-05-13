@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HP
   - Obstacles
+  - Enemy
   layers:
   - Default
   - TransparentFX
