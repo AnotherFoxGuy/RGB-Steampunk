@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
 		dis = Mathf.Abs(this.transform.position.x - player.transform.position.x);
 		if(dis < 2.3 && tmr < 0)
 		{
-			player.SendMessage ("ApplyDamage", Damage);
+			player.SendMessage("ApplyDamage", Damage);
 			tmr = 1f;
 		}
 	}
@@ -136,9 +136,10 @@ public class Enemy : MonoBehaviour
 		if (Health <= 0)
 			Destroy (this.gameObject);
 	}
+	/*
 	void OnGUI() 
 	{
 		GUI.Box(new Rect(10, 40, 100, 20), ""+dis);
 	}
-
+	*/
 }

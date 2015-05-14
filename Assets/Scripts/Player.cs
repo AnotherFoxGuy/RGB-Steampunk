@@ -5,7 +5,7 @@ using AGC.Tools;
 public class Player : MonoBehaviour 
 {
 	public float Health = 100;
-	public float MR = 100;
+	public float LightResource = 100;
 	public float Speed = 1;
 	public float MaxSpeed = 1;
 	public float JumpSpeed = 1;
@@ -14,13 +14,15 @@ public class Player : MonoBehaviour
 	public Material BlueMaterial;
 	public static Material[] Colors;
 
+	private bool lr_on = false;
+	private bool hp = false;
 	private Material NullMat;
 	private int lm = 1 << 9;
 	private Projector pr;
-	private AColor selected_color;
+	//private AColor selected_color;
 	private Rigidbody rb;
 	private float damage = 5;
-	private GameObject[] go_hp;
+	private GameObject go_hp;
 	private	GameObject[] gos_obs;
 	private	GameObject[] gos_enemy;
 	private int GodModeProgress = 0;
@@ -30,17 +32,16 @@ public class Player : MonoBehaviour
 	enum AColor{ None, Red, Green, Blue};
 
 
-
 	void Start () 
 	{
 		pr = Camera.main.gameObject.AddComponent<Projector>();
 		pr.fieldOfView = 120;
 		rb = this.GetComponent<Rigidbody>();
 		Colors = new Material[4]{NullMat,RedMaterial,GreenMaterial,BlueMaterial};
-		go_hp = GameObject.FindGameObjectsWithTag("HP");
+		go_hp =  (GameObject)Resources.Load("/Prefabs/yourPrefab");
 		gos_obs = GameObject.FindGameObjectsWithTag("Obstacles");
 		gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
-		UpdateColors ();
+		UpdateColors (AColor.None);
 	}
 
 	void Update ()
@@ -52,27 +53,33 @@ public class Player : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha1)) 
 		{
-			pr.material = Colors[(int)AColor.Red];
-			selected_color = AColor.Red;
-			UpdateColors ();
+			if(!lr_on)
+				UpdateColors (AColor.Red);
+			else
+				UpdateColors (AColor.None);
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2)) 
 		{
-			pr.material = Colors[(int)AColor.Green];
-			selected_color = AColor.Green;
-			UpdateColors ();
+			if(!lr_on)
+				UpdateColors (AColor.Green);
+			else
+				UpdateColors (AColor.None);
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha3)) 
 		{
-			pr.material = Colors[(int)AColor.Blue];
-			selected_color = AColor.Blue;
-			UpdateColors ();
+			if(!lr_on)
+				UpdateColors (AColor.Blue);
+			else
+				UpdateColors (AColor.None);
 		}
-		if (Input.GetKeyDown(KeyCode.Space)) 
+		if (LightResource <= 0 && lr_on) 
 		{
-			pr.material = Colors[(int)AColor.None];
-			selected_color = AColor.None;
-			UpdateColors ();
+			UpdateColors (AColor.None);
+			LightResource = 0;
+		}
+		if(lr_on)
+		{
+			LightResource -= Time.deltaTime * 10;
 		}
 		if(Input.GetButtonDown("Jump"))
 		{
@@ -83,11 +90,16 @@ public class Player : MonoBehaviour
 		{
 			RaycastHit[] rh = Physics.SphereCastAll(this.transform.position,2,Vector3.right,1,lm);
 			foreach(RaycastHit ht in rh)
-				ht.collider.SendMessage ("ApplyDamage", damage);
+			{
+				Enemy e = ht.collider.GetComponent<Enemy>();
+				if(e != null)
+				{
+					ht.collider.SendMessage ("ApplyDamage", damage);
+				}
+			}
+				
 		}
 	}
-
-
 	void FixedUpdate ()
 	{
 		if(Input.GetButton("Right"))
@@ -103,35 +115,29 @@ public class Player : MonoBehaviour
 				rb.AddForce(Vector3.left * Speed);
 		}
 	}
-	void UpdateColors ()
+	void UpdateColors (AColor selected_color)
 	{
-		damage = 5;
-		gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
-		foreach(GameObject go in go_hp)
-			go.SetActive(false);
-		foreach(GameObject go in gos_obs)
-			go.SetActive(true);
-		foreach(GameObject go in gos_enemy)
-			go.SetActive(true);
+		pr.material = Colors[(int)selected_color];
 
 		if(selected_color == AColor.Red)
 		{
 			AGCTools.log("selected_color == AColor.Red");
+			lr_on = true;
 			damage = 10;
 		}
 
 		else if(selected_color == AColor.Green)
 		{
 			AGCTools.log("selected_color == AColor.Green");
-
-			foreach(GameObject go in go_hp)
-				go.SetActive(true);
+			lr_on = true;
+			hp = true;
 		}
 
 		else if(selected_color == AColor.Blue)
 		{
 			AGCTools.log("selected_color == AColor.Blue");
-
+			lr_on = true;
+			gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
 			foreach(GameObject go in gos_obs)
 				go.SetActive(false);
 			foreach(GameObject go in gos_enemy)
@@ -140,7 +146,22 @@ public class Player : MonoBehaviour
 
 		else
 		{
-			AGCTools.log("None");
+			try
+			{
+				AGCTools.log("None");
+				lr_on = false;
+				hp = false;
+				damage = 5;
+				//gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
+				foreach(GameObject go in gos_obs)
+					go.SetActive(true);
+				foreach(GameObject go in gos_enemy)
+					go.SetActive(true);
+			}
+			catch
+			{
+			}
+			
 		}
 	}
 	public void ApplyDamage (float d) 
@@ -152,6 +173,28 @@ public class Player : MonoBehaviour
 		#endif//UNITY_EDITOR
 		if (Health <= 0)
 			Application.LoadLevel(Application.loadedLevel);
+	}
+	void OnCollisionEnter(Collision collision) 
+	{
+		foreach (ContactPoint c in collision.contacts) 
+		{
+			if(c.otherCollider.tag == "LightResource")
+			{
+				if(!hp)
+				{
+					LightResource += 50;
+					if(LightResource > 100)
+						LightResource = 100;
+				}
+				else
+				{
+					Health += 50;
+					if(Health > 100)
+						Health = 100;
+				}
+				Destroy(c.otherCollider.gameObject);
+			}
+		}
 	}
 
 	GameObject GetClosestObject(string tag)
@@ -171,7 +214,6 @@ public class Player : MonoBehaviour
 
 	void OnGUI() 
 	{
-		GUI.Box(new Rect(10, 10, 100, 20), ""+Health);
 	}
 	void UpdateCheats() {
 		if (CheatDelay > 0) {
