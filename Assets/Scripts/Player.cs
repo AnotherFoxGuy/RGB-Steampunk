@@ -214,6 +214,7 @@ public class Player : MonoBehaviour
 
 	void OnGUI() 
 	{
+		GUI.Box(new Rect(10, 10, 100, 40), Mathf.Floor(Health)+"\n"+ Mathf.Floor(LightResource));
 	}
 	void UpdateCheats() {
 		if (CheatDelay > 0) {
