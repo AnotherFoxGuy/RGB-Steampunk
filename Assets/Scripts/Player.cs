@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
 	private Rigidbody rb;
 	private float damage = 5;
 	private GameObject go_hp;
-	private	GameObject[] gos_obs;
+	private	GameObject[] gos_obs_vis;
+	private	GameObject[] gos_obs_hid;
 	private	GameObject[] gos_enemy;
 	private int GodModeProgress = 0;
 	private float CheatDelay = 0f;
@@ -48,19 +49,22 @@ public class Player : MonoBehaviour
 		arm = GameObject.Find("Arm");
 		arm_orgpos = arm.transform.localPosition;
 		go_hp =  (GameObject)Resources.Load("/Prefabs/yourPrefab");
-		gos_obs = GameObject.FindGameObjectsWithTag("Obstacles");
+		gos_obs_vis = GameObject.FindGameObjectsWithTag("Obstacles Visible");
+		gos_obs_hid = GameObject.FindGameObjectsWithTag("Obstacles Hidden");
 		gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
 		UpdateColors (AColor.None);
 	}
 
 	void Update ()
 	{
+		UpdateArm();
+		UpdateCheats();
 		if(tmr > -0.1)
 			tmr -= Time.deltaTime; 
 		if(tmr < 0 && !can_use_arm)
 			can_use_arm = true;
-		UpdateArm();
-		UpdateCheats();
+		if(LightResource < 10f && !lr_on)
+			LightResource += 0.1f;
 		if(GodMode)
 		{
 			Health = 100;
@@ -209,8 +213,10 @@ public class Player : MonoBehaviour
 			AGCTools.log("selected_color == AColor.Blue");
 			lr_on = true;
 			gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
-			foreach(GameObject go in gos_obs)
+			foreach(GameObject go in gos_obs_vis)
 				go.SetActive(false);
+			foreach(GameObject go in gos_obs_hid)
+				go.SetActive(true);
 			foreach(GameObject go in gos_enemy)
 				go.SetActive(false);
 		}
@@ -224,8 +230,10 @@ public class Player : MonoBehaviour
 				hp = false;
 				damage = 5;
 				//gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
-				foreach(GameObject go in gos_obs)
+				foreach(GameObject go in gos_obs_vis)
 					go.SetActive(true);
+				foreach(GameObject go in gos_obs_hid)
+					go.SetActive(false);
 				foreach(GameObject go in gos_enemy)
 					go.SetActive(true);
 			}

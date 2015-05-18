@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - HP
-  - Obstacles
   - Enemy
   - LightResource
+  - Obstacles Hidden
+  - Obstacles Visible
   layers:
   - Default
   - TransparentFX
