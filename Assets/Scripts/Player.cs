@@ -19,7 +19,11 @@ public class Player : MonoBehaviour
 	private Material NullMat;
 	private int lm = 1 << 9;
 	private Projector pr;
-	//private AColor selected_color;
+	private GameObject arm;
+	private GameObject arm_hit;
+	private Vector3 arm_orgpos;
+	private arm_states arm_state = arm_states.idle;
+	enum arm_states{ idle, forward, backward};
 	private Rigidbody rb;
 	private float damage = 5;
 	private GameObject go_hp;
@@ -28,7 +32,6 @@ public class Player : MonoBehaviour
 	private int GodModeProgress = 0;
 	private float CheatDelay = 0f;
 	private bool GodMode = false;
-
 	enum AColor{ None, Red, Green, Blue};
 
 
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
 		pr.fieldOfView = 120;
 		rb = this.GetComponent<Rigidbody>();
 		Colors = new Material[4]{NullMat,RedMaterial,GreenMaterial,BlueMaterial};
+		arm = GameObject.Find("Arm");
+		arm_orgpos = arm.transform.localPosition;
 		go_hp =  (GameObject)Resources.Load("/Prefabs/yourPrefab");
 		gos_obs = GameObject.FindGameObjectsWithTag("Obstacles");
 		gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
@@ -46,73 +51,125 @@ public class Player : MonoBehaviour
 
 	void Update ()
 	{
+		UpdateArm();
 		UpdateCheats();
 		if(GodMode)
 		{
 			Health = 100;
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha1)) 
+		if(arm_state == arm_states.idle)
 		{
-			if(!lr_on)
-				UpdateColors (AColor.Red);
-			else
-				UpdateColors (AColor.None);
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha2)) 
-		{
-			if(!lr_on)
-				UpdateColors (AColor.Green);
-			else
-				UpdateColors (AColor.None);
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha3)) 
-		{
-			if(!lr_on)
-				UpdateColors (AColor.Blue);
-			else
-				UpdateColors (AColor.None);
-		}
-		if (LightResource <= 0 && lr_on) 
-		{
-			UpdateColors (AColor.None);
-			LightResource = 0;
-		}
-		if(lr_on)
-		{
-			LightResource -= Time.deltaTime * 10;
-		}
-		if(Input.GetButtonDown("Jump"))
-		{
-			if(Physics.Raycast(this.transform.position, Vector3.down, 1.5f))
-				rb.AddForce(transform.TransformDirection(Vector3.up * JumpSpeed));
-		}
-		if(Input.GetButtonDown("Fire1"))
-		{
-			RaycastHit[] rh = Physics.SphereCastAll(this.transform.position,2,Vector3.right,1,lm);
-			foreach(RaycastHit ht in rh)
+			if (Input.GetKeyDown(KeyCode.Alpha1)) 
 			{
-				Enemy e = ht.collider.GetComponent<Enemy>();
-				if(e != null)
-				{
-					ht.collider.SendMessage ("ApplyDamage", damage);
-				}
+				if(!lr_on)
+					UpdateColors (AColor.Red);
+				else
+					UpdateColors (AColor.None);
 			}
-				
+			if (Input.GetKeyDown(KeyCode.Alpha2)) 
+			{
+				if(!lr_on)
+					UpdateColors (AColor.Green);
+				else
+					UpdateColors (AColor.None);
+			}
+			if (Input.GetKeyDown(KeyCode.Alpha3)) 
+			{
+				if(!lr_on)
+					UpdateColors (AColor.Blue);
+				else
+					UpdateColors (AColor.None);
+			}
+			if (LightResource <= 0 && lr_on) 
+			{
+				UpdateColors (AColor.None);
+				LightResource = 0;
+			}
+			if(lr_on)
+			{
+				LightResource -= Time.deltaTime * 10;
+			}
+			if(Input.GetButtonDown("Jump"))
+			{
+				if(Physics.Raycast(this.transform.position, Vector3.down, 1.5f))
+					rb.AddForce(transform.TransformDirection(Vector3.up * JumpSpeed));
+			}
+			if(Input.GetButtonDown("Fire1"))
+			{
+				RaycastHit[] rh = Physics.SphereCastAll(this.transform.position,2,Vector3.right,1,lm);
+				foreach(RaycastHit ht in rh)
+				{
+					Enemy e = ht.collider.GetComponent<Enemy>();
+					if(e != null)
+					{
+						ht.collider.SendMessage ("ApplyDamage", damage);
+					}
+				}
+					
+			}
 		}
 	}
 	void FixedUpdate ()
 	{
-		if(Input.GetButton("Right"))
+		if(arm_state == arm_states.idle)
 		{
-			this.transform.eulerAngles = new Vector3(0,180,0);
-			if(rb.velocity.x < MaxSpeed)
-				rb.AddForce(Vector3.right * Speed);
+			if(Input.GetButton("Right"))
+			{
+				this.transform.eulerAngles = new Vector3(0,180,0);
+				if(rb.velocity.x < MaxSpeed)
+					rb.AddForce(Vector3.right * Speed);
+			}
+			if(Input.GetButton("Left"))
+			{
+				this.transform.eulerAngles = new Vector3(0,0,0);
+				if(rb.velocity.x > -MaxSpeed)
+					rb.AddForce(Vector3.left * Speed);
+			}
 		}
-		if(Input.GetButton("Left"))
+	}
+	void UpdateArm ()
+	{
+		if(Input.GetButtonDown("Fire2"))
 		{
-			this.transform.eulerAngles = new Vector3(0,0,0);
-			if(rb.velocity.x > -MaxSpeed)
-				rb.AddForce(Vector3.left * Speed);
+			arm_state = arm_states.forward;
+			rb.isKinematic = true;
+			arm_hit = null;
+		}
+		if(arm_state == arm_states.forward)
+		{
+			Vector3 a = arm.transform.localPosition;
+			Vector3 p = this.transform.position;
+			p.y+=0.5f;
+			arm.transform.localPosition = new Vector3(a.x - 0.2f,a.y,a.z);
+			RaycastHit ht;
+			Debug.DrawLine(arm.transform.position,arm.transform.position + transform.InverseTransformDirection(Vector3.left));
+			if(Physics.Raycast(this.transform.position, transform.InverseTransformDirection(Vector3.left),out ht,Mathf.Abs( a.x)))
+			{
+				AGCTools.log(""+ ht.collider.name);
+				arm_state = arm_states.backward;
+				arm_hit = ht.collider.gameObject;
+				arm_hit.SendMessage("Stun");
+			}
+			if(a.x < -10)
+			{
+				arm_state = arm_states.backward;
+			}
+		}
+		if(arm_state == arm_states.backward)
+		{
+			Vector3 a = arm.transform.localPosition;
+			arm.transform.localPosition = new Vector3(a.x + 0.2f,a.y,a.z);
+			if (arm_hit != null)
+			{
+				Vector3 ah = arm_hit.transform.position;
+				arm_hit.transform.position = new Vector3(arm.transform.position.x,ah.y,ah.z);
+			}
+			if(a.x > arm_orgpos.x - 1.5f)
+			{
+				arm.transform.localPosition = arm_orgpos;
+				arm_state = arm_states.idle;
+				rb.isKinematic = false;
+			}
 		}
 	}
 	void UpdateColors (AColor selected_color)
@@ -216,30 +273,10 @@ public class Player : MonoBehaviour
 	{
 		GUI.Box(new Rect(10, 10, 100, 40), Mathf.Floor(Health)+"\n"+ Mathf.Floor(LightResource));
 	}
+
 	void UpdateCheats() {
-		if (CheatDelay > 0) {
-			CheatDelay -= Time.deltaTime;
-			if (CheatDelay <= 0) {
-				CheatDelay = 0f;
-				GodModeProgress = 0;
-			}
-		}
-		if (GodModeProgress == 0 && Input.GetKeyDown(KeyCode.E)) {
-			++GodModeProgress;
-			CheatDelay = 1f;
-		} else if (GodModeProgress == 1 && Input.GetKeyDown(KeyCode.D)) {
-			++GodModeProgress;
-			CheatDelay = 1f;
-		} else if (GodModeProgress == 2 && Input.GetKeyDown(KeyCode.G)) {
-			++GodModeProgress;
-			CheatDelay = 1f;
-		} else if (GodModeProgress == 3 && Input.GetKeyDown(KeyCode.A)) {
-			++GodModeProgress;
-			CheatDelay = 1f;
-		} else if (GodModeProgress == 4 && Input.GetKeyDown(KeyCode.R)) {
-			GodModeProgress = 0;
-			GodMode = !GodMode;
-			print("GodMode On!");
-		}
+		if (CheatDelay > 0) {CheatDelay -= Time.deltaTime;
+		if (CheatDelay <= 0) {CheatDelay = 0f;GodModeProgress = 0;}}
+		if (GodModeProgress == 0 && Input.GetKeyDown(KeyCode.E)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 1 && Input.GetKeyDown(KeyCode.D)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 2 && Input.GetKeyDown(KeyCode.G)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 3 && Input.GetKeyDown(KeyCode.A)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 4 && Input.GetKeyDown(KeyCode.R)) {GodModeProgress = 0;GodMode = !GodMode;print("GodMode On!");}
 	}
 }

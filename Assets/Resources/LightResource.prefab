@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6500794}
   - 23: {fileID: 2313806}
   - 54: {fileID: 5404104}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightResource
   m_TagString: LightResource
   m_Icon: {fileID: 0}

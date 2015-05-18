@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 	
 	private GameObject player;
 	private bool active = false;
+	private bool can_move = false;
 	private float MoveTo = 1;
 	private float dis;
 	private int one = 1;
@@ -33,10 +34,14 @@ public class Enemy : MonoBehaviour
 	{
 		if(tmr > -0.1)
 			tmr -= Time.deltaTime; 
-		//if(can_move) UpdateMove();
-		if(EnemyType == e_types.Engineer) UpdateEngineer();
-		else if(EnemyType == e_types.Witch) UpdateWitch();
-		else UpdateSpiderBot();
+		if(tmr < 0 && !can_move)
+			can_move = true;
+		if(can_move)
+		{
+			if(EnemyType == e_types.Engineer) UpdateEngineer();
+			else if(EnemyType == e_types.Witch) UpdateWitch();
+			else UpdateSpiderBot();
+		}
 	
 	}
 	void UpdateEngineer () 
@@ -70,6 +75,22 @@ public class Enemy : MonoBehaviour
 		}
 		if(active)
 		{
+			if (this.transform.position.x > player.transform.position.x + 0.2) 
+			{
+				one = -1;
+				this.transform.eulerAngles = new Vector3(0,180,0);
+				MoveTo = MovementSpeed;
+			} 
+			else if (this.transform.position.x < player.transform.position.x - 0.2) 
+			{
+				one = 1;
+				this.transform.eulerAngles = new Vector3(0,0,0);
+				MoveTo = MovementSpeed;
+			} 
+			else 
+			{
+				MoveTo = 0;
+			}
 			if(tmr < 0)
 			{
 				GameObject cl = Instantiate(InstantiateGameObject,new Vector3(this.transform.position.x + one,this.transform.position.y ,this.transform.position.z),Quaternion.identity) as GameObject;
@@ -131,10 +152,15 @@ public class Enemy : MonoBehaviour
 		Health -= d;
 		#if UNITY_EDITOR
 		AGCTools.log("Health "+ Health + " Damage " + d);
-		this.GetComponent<Rigidbody>().AddExplosionForce(500f,player.transform.position,5f);
+		this.GetComponent<Rigidbody>().AddExplosionForce(750f,player.transform.position,5f);
 		#endif//UNITY_EDITOR
 		if (Health <= 0)
 			Destroy (this.gameObject);
+	}
+	public void Stun () 
+	{
+		can_move = false;
+		tmr = 10;
 	}
 	void OnApplicationQuit()
 	{

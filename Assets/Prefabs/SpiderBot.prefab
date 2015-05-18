@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyType: 2
   InstantiateGameObject: {fileID: 0}
-  MovementSpeed: 10
+  MovementSpeed: 1
   Health: 10
   Damage: 1
 --- !u!1001 &100100000
