@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 	private int spibot = 5;
 	private int lm = 1 << 9;
 	private float tmr = 0;
+	private bool isQuitting = false;
 	public enum e_types{Witch,Engineer,SpiderBot};
 
 
@@ -26,7 +27,6 @@ public class Enemy : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		lm = ~lm;
 		MoveTo = MovementSpeed;
-		AGCTools.log(""+EnemyType);
 	}
 
 	void Update () 
@@ -135,6 +135,15 @@ public class Enemy : MonoBehaviour
 		#endif//UNITY_EDITOR
 		if (Health <= 0)
 			Destroy (this.gameObject);
+	}
+	void OnApplicationQuit()
+	{
+		isQuitting = true;
+	}
+	void OnDestroy() 
+	{
+		if (!isQuitting)
+			Instantiate(Resources.Load("LightResource"),this.transform.position,Quaternion.identity);
 	}
 	/*
 	void OnGUI() 
