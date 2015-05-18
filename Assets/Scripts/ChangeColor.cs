@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using AGC.Tools;
 
 public class ChangeColor : MonoBehaviour 
 {

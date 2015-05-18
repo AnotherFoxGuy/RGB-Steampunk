@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using AGC.Tools;
 
 public class Player : MonoBehaviour 
 {
+	public bool GodMode = false;
 	public float Health = 100;
 	public float LightResource = 100;
 	public float Speed = 1;
@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
 	private	GameObject[] gos_enemy;
 	private int GodModeProgress = 0;
 	private float CheatDelay = 0f;
-	private bool GodMode = false;
 	private float tmr = 0;
 	enum AColor{ None, Red, Green, Blue};
 
@@ -67,7 +66,8 @@ public class Player : MonoBehaviour
 			LightResource += 0.1f;
 		if(GodMode)
 		{
-			Health = 100;
+			Health = 50;
+			LightResource = 50;
 		}
 		if(arm_state == arm_states.idle)
 		{
@@ -163,7 +163,7 @@ public class Player : MonoBehaviour
 			Debug.DrawLine(arm.transform.position,arm.transform.position + transform.InverseTransformDirection(Vector3.left));
 			if(Physics.Raycast(this.transform.position, transform.InverseTransformDirection(Vector3.left),out ht,Mathf.Abs( a.x)))
 			{
-				AGCTools.log(""+ ht.collider.name);
+				print(""+ ht.collider.name);
 				arm_state = arm_states.backward;
 				arm_hit = ht.collider.gameObject;
 				arm_hit.SendMessage("Stun");
@@ -196,21 +196,21 @@ public class Player : MonoBehaviour
 
 		if(selected_color == AColor.Red)
 		{
-			AGCTools.log("selected_color == AColor.Red");
+			print("selected_color == AColor.Red");
 			lr_on = true;
 			damage = 10;
 		}
 
 		else if(selected_color == AColor.Green)
 		{
-			AGCTools.log("selected_color == AColor.Green");
+			print("selected_color == AColor.Green");
 			lr_on = true;
 			hp = true;
 		}
 
 		else if(selected_color == AColor.Blue)
 		{
-			AGCTools.log("selected_color == AColor.Blue");
+			print("selected_color == AColor.Blue");
 			lr_on = true;
 			gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
 			foreach(GameObject go in gos_obs_vis)
@@ -225,7 +225,7 @@ public class Player : MonoBehaviour
 		{
 			try
 			{
-				AGCTools.log("None");
+				print("None");
 				lr_on = false;
 				hp = false;
 				damage = 5;
@@ -247,7 +247,7 @@ public class Player : MonoBehaviour
 	{
 		Health -= d;
 		#if UNITY_EDITOR
-		//AGCTools.log("Health "+ Health + " Damage " + d);
+		//print("Health "+ Health + " Damage " + d);
 		this.GetComponent<Rigidbody>().AddExplosionForce(500f,GetClosestObject("Enemy").transform.position,5f);
 		#endif//UNITY_EDITOR
 		if (Health <= 0)

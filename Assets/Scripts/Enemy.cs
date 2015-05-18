@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using AGC.Tools;
 
 public class Enemy : MonoBehaviour
 {
@@ -151,7 +150,7 @@ public class Enemy : MonoBehaviour
 	{
 		Health -= d;
 		#if UNITY_EDITOR
-		AGCTools.log("Health "+ Health + " Damage " + d);
+		print("Health "+ Health + " Damage " + d);
 		this.GetComponent<Rigidbody>().AddExplosionForce(750f,player.transform.position,5f);
 		#endif//UNITY_EDITOR
 		if (Health <= 0)

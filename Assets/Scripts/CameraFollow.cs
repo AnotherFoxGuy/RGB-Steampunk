@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using AGC.Tools;
 
 public class CameraFollow : MonoBehaviour 
 {
