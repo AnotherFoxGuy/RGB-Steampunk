@@ -1,44 +1,132 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Rgb-steampunk by AnotherFoxGuy</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Unity Web Player | RGB-Steampunk</title>
+		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config;
+			config = {
+			width: $(window).width()/1.01,
+			height: $(window).height()/1.1,
+			params: {enableDebugging: "0"}
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Rgb-steampunk</h1>
-        <p>RGB-Steampunk is a 2.5D (2D movement set in a 3D generated world) brawler in which you fight enemies with melee attacks, a steam powered grappling claw, and a magic powered word shifting system which gives you multiple approaches to encounters.</p>
+		};
+			var u = new UnityObject2(config);
+			
+			jQuery(function() {
 
-        <p class="view"><a href="https://github.com/AnotherFoxGuy/RGB-Steampunk">View the Project on GitHub <small>AnotherFoxGuy/RGB-Steampunk</small></a></p>
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
 
-
-        <ul>
-          <li><a href="https://github.com/AnotherFoxGuy/RGB-Steampunk/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/AnotherFoxGuy/RGB-Steampunk/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/AnotherFoxGuy/RGB-Steampunk">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a id="rgb-steampunk" class="anchor" href="#rgb-steampunk" aria-hidden="true"><span class="octicon octicon-link"></span></a>RGB-Steampunk</h1>
-
-<p>RGB-Steampunk is a 2.5D (2D movement set in a 3D generated world) brawler in which you fight enemies with melee attacks, a steam powered grappling claw, and a magic powered word shifting system which gives you multiple approaches to encounters.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/AnotherFoxGuy">AnotherFoxGuy</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "Build.unity3d");
+			});
+		-->
+		</script>
+		<style type="text/css">
+		<!--
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+			background-color: black;
+			color: white;
+			text-align: center;
+		}
+		a:link, a:visited {
+			color: #bfbfbf;
+		}
+		a:active, a:hover {
+			color: #bfbfbf;
+		}
+		p.header {
+			font-size: small;
+		}
+		p.header span {
+			font-weight: bold;
+		}
+		p.footer {
+			font-size: x-small;
+		}
+		div.content {
+			margin: auto;
+			width: 100%;
+		}
+		div.broken,
+		div.missing {
+			margin: auto;
+			position: relative;
+			top: 50%;
+			width: 193px;
+		}
+		div.broken a,
+		div.missing a {
+			height: 63px;
+			position: relative;
+			top: -31px;
+		}
+		div.broken img,
+		div.missing img {
+			border-width: 0px;
+		}
+		div.broken {
+			display: none;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 100%;
+			width: 100%;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+		<p class="header"><span>Unity Web Player | </span>RGB-Steampunk</p>
+		<div class="content">
+			<div id="unityPlayer">
+				<div class="missing">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+	</body>
 </html>
