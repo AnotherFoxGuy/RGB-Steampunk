@@ -16,11 +16,11 @@
 		<!--
 			var config;
 			config = {
-			width: $(window).width()/1.01,
-			height: $(window).height()/1.1,
-			params: {enableDebugging: "0"}
-
-		};
+				width: $(window).width()/1.01,
+				height: $(window).height()/1.1,
+				params: {enableDebugging: "0"}
+			};
+			config.params["disableContextMenu"] = true;
 			var u = new UnityObject2(config);
 			
 			jQuery(function() {
