@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 	public float LightResource = 100;
 	public float Speed = 1;
 	public float MaxSpeed = 1;
-	public float JumpSpeed = 1;
+	public float JumpForceUp = 1;
+	public float JumpForceDown = 1;
 	public Material RedMaterial;
 	public Material GreenMaterial;
 	public Material BlueMaterial;
@@ -16,11 +17,13 @@ public class Player : MonoBehaviour
 
 	private bool lr_on = false;
 	private bool hp = false;
+	private bool can_jump = true;
 	private Material NullMat;
 	private int lm = 1 << 9;
 	private Projector pr;
 	private GameObject arm;
 	private GameObject arm_hit;
+	private bool can_use_arm = true;
 	private Vector3 arm_orgpos;
 	private arm_states arm_state = arm_states.idle;
 	enum arm_states{ idle, forward, backward};
@@ -32,6 +35,7 @@ public class Player : MonoBehaviour
 	private int GodModeProgress = 0;
 	private float CheatDelay = 0f;
 	private bool GodMode = false;
+	private float tmr = 0;
 	enum AColor{ None, Red, Green, Blue};
 
 
@@ -51,6 +55,10 @@ public class Player : MonoBehaviour
 
 	void Update ()
 	{
+		if(tmr > -0.1)
+			tmr -= Time.deltaTime; 
+		if(tmr < 0 && !can_use_arm)
+			can_use_arm = true;
 		UpdateArm();
 		UpdateCheats();
 		if(GodMode)
@@ -89,10 +97,10 @@ public class Player : MonoBehaviour
 			{
 				LightResource -= Time.deltaTime * 10;
 			}
-			if(Input.GetButtonDown("Jump"))
+			if(Input.GetButtonDown("Jump") && can_jump)
 			{
-				if(Physics.Raycast(this.transform.position, Vector3.down, 1.5f))
-					rb.AddForce(transform.TransformDirection(Vector3.up * JumpSpeed));
+				rb.AddForce(transform.TransformDirection(Vector3.up * JumpForceUp));
+				can_jump = false;
 			}
 			if(Input.GetButtonDown("Fire1"))
 			{
@@ -111,6 +119,10 @@ public class Player : MonoBehaviour
 	}
 	void FixedUpdate ()
 	{
+		if(!can_jump)
+		{
+			rb.AddForce(Vector3.down * JumpForceDown);
+		}
 		if(arm_state == arm_states.idle)
 		{
 			if(Input.GetButton("Right"))
@@ -129,8 +141,10 @@ public class Player : MonoBehaviour
 	}
 	void UpdateArm ()
 	{
-		if(Input.GetButtonDown("Fire2"))
+		if(Input.GetButtonDown("Fire2") && can_use_arm)
 		{
+			tmr = 5;
+			can_use_arm = false;
 			arm_state = arm_states.forward;
 			rb.isKinematic = true;
 			arm_hit = null;
@@ -233,6 +247,7 @@ public class Player : MonoBehaviour
 	}
 	void OnCollisionEnter(Collision collision) 
 	{
+		can_jump = true;
 		foreach (ContactPoint c in collision.contacts) 
 		{
 			if(c.otherCollider.tag == "LightResource")
@@ -274,9 +289,5 @@ public class Player : MonoBehaviour
 		GUI.Box(new Rect(10, 10, 100, 40), Mathf.Floor(Health)+"\n"+ Mathf.Floor(LightResource));
 	}
 
-	void UpdateCheats() {
-		if (CheatDelay > 0) {CheatDelay -= Time.deltaTime;
-		if (CheatDelay <= 0) {CheatDelay = 0f;GodModeProgress = 0;}}
-		if (GodModeProgress == 0 && Input.GetKeyDown(KeyCode.E)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 1 && Input.GetKeyDown(KeyCode.D)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 2 && Input.GetKeyDown(KeyCode.G)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 3 && Input.GetKeyDown(KeyCode.A)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 4 && Input.GetKeyDown(KeyCode.R)) {GodModeProgress = 0;GodMode = !GodMode;print("GodMode On!");}
-	}
+	void UpdateCheats() {if (CheatDelay > 0) {CheatDelay -= Time.deltaTime;if (CheatDelay <= 0) {CheatDelay = 0f;GodModeProgress = 0;}}if (GodModeProgress == 0 && Input.GetKeyDown(KeyCode.E)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 1 && Input.GetKeyDown(KeyCode.D)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 2 && Input.GetKeyDown(KeyCode.G)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 3 && Input.GetKeyDown(KeyCode.A)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 4 && Input.GetKeyDown(KeyCode.R)) {GodModeProgress = 0;GodMode = !GodMode;print("GodMode On!");}}
 }

@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
 				spibot--;
 				tmr = 1f;
 			}
-			else
+			else if (spibot <=0)
 			{
 				UpdateMove();
 			}
