@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
 	private int spibot = 5;
 	private int lm = 1 << 9;
 	private float tmr = 0;
-	private bool isQuitting = false;
 	public enum e_types{Witch,Engineer,SpiderBot};
 
 
@@ -154,26 +153,14 @@ public class Enemy : MonoBehaviour
 		this.GetComponent<Rigidbody>().AddExplosionForce(750f,player.transform.position,5f);
 		#endif//UNITY_EDITOR
 		if (Health <= 0)
+		{
 			Destroy (this.gameObject);
+			Instantiate(Resources.Load("LightResource"),this.transform.position,Quaternion.identity);
+		}
 	}
 	public void Stun () 
 	{
 		can_move = false;
 		tmr = 10;
 	}
-	void OnApplicationQuit()
-	{
-		isQuitting = true;
-	}
-	void OnDestroy() 
-	{
-		if (!isQuitting)
-			Instantiate(Resources.Load("LightResource"),this.transform.position,Quaternion.identity);
-	}
-	/*
-	void OnGUI() 
-	{
-		GUI.Box(new Rect(10, 40, 100, 20), ""+dis);
-	}
-	*/
 }

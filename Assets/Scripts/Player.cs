@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
 			{
 				LightResource -= Time.deltaTime * 10;
 			}
-			if(Input.GetButtonDown("Jump") && can_jump)
+			if(Input.GetButtonDown("Jump") && can_jump && Physics.Raycast(this.transform.position, Vector3.down, 0.1f))
 			{
 				rb.AddForce(transform.TransformDirection(Vector3.up * JumpForceUp));
 				can_jump = false;
@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
 	}
 	void UpdateArm ()
 	{
-		if(Input.GetButtonDown("Fire2") && can_use_arm)
+		if(Input.GetButtonDown("Fire2") && can_use_arm && Physics.Raycast(this.transform.position, Vector3.down, 0.1f))
 		{
 			tmr = 5;
 			can_use_arm = false;
@@ -249,9 +249,9 @@ public class Player : MonoBehaviour
 	{
 		Health -= d;
 		#if UNITY_EDITOR
-		//print("Health "+ Health + " Damage " + d);
-		this.GetComponent<Rigidbody>().AddExplosionForce(500f,GetClosestObject("Enemy").transform.position,5f);
+		print("Health "+ Health + " Damage " + d);
 		#endif//UNITY_EDITOR
+		this.GetComponent<Rigidbody>().AddExplosionForce(500f,GetClosestObject("Enemy").transform.position,5f);
 		if (Health <= 0)
 			Application.LoadLevel(Application.loadedLevel);
 	}
