@@ -60,12 +60,17 @@ public class Enemy : MonoBehaviour
 			else if (spibot <=0)
 			{
 				UpdateMove();
+				if(dis < 2.3 && tmr < 0)
+				{
+					player.SendMessage("ApplyDamage", Damage);
+					tmr = 1f;
+				}
 			}
 		}
 	}
 	void UpdateWitch () 
 	{
-		dis = Mathf.Abs(this.transform.position.x - player.transform.position.x);
+		dis = Vector3.Distance(this.transform.position, player.transform.position);
 		if(dis < 10 && !active)
 		{
 			active = true;
@@ -77,18 +82,12 @@ public class Enemy : MonoBehaviour
 			{
 				one = -1;
 				this.transform.eulerAngles = new Vector3(0,180,0);
-				MoveTo = MovementSpeed;
 			} 
 			else if (this.transform.position.x < player.transform.position.x - 0.2) 
 			{
 				one = 1;
 				this.transform.eulerAngles = new Vector3(0,0,0);
-				MoveTo = MovementSpeed;
 			} 
-			else 
-			{
-				MoveTo = 0;
-			}
 			if(tmr < 0)
 			{
 				GameObject cl = Instantiate(InstantiateGameObject,new Vector3(this.transform.position.x + one,this.transform.position.y ,this.transform.position.z),Quaternion.identity) as GameObject;
@@ -106,7 +105,7 @@ public class Enemy : MonoBehaviour
 	void UpdateSpiderBot () 
 	{
 		UpdateMove();
-		dis = Mathf.Abs(this.transform.position.x - player.transform.position.x);
+		dis = Vector3.Distance(this.transform.position, player.transform.position);
 		if(dis < 2.3 && tmr < 0)
 		{
 			player.SendMessage("ApplyDamage", Damage);
@@ -117,32 +116,30 @@ public class Enemy : MonoBehaviour
 	{
 		var translation = Time.deltaTime * MoveTo;
 		transform.Translate(translation, 0, 0);
-		
-		if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 2, lm)) 
+		Vector3 fall = new Vector3(this.transform.position.x + one,this.transform.position.y,this.transform.position.z);
+		if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 2, lm) || !Physics.Raycast(fall, Vector3.down, 1, lm)) 
 		{
 			MoveTo = 0;
 		}				
 		else 
 		{
-			if (Physics.Raycast(this.transform.position, Vector3.down, 1, lm)) 
+			if (this.transform.position.x > player.transform.position.x + 0.2) 
 			{
-				if (this.transform.position.x > player.transform.position.x + 0.2) 
-				{
-					one = -1;
-					this.transform.eulerAngles = new Vector3(0,180,0);
-					MoveTo = MovementSpeed;
-				} 
-				else if (this.transform.position.x < player.transform.position.x - 0.2) 
-				{
-					one = 1;
-					this.transform.eulerAngles = new Vector3(0,0,0);
-					MoveTo = MovementSpeed;
-				} 
-				else 
-				{
-					MoveTo = 0;
-				}
+				one = -1;
+				this.transform.eulerAngles = new Vector3(0,180,0);
+				MoveTo = MovementSpeed;
+			} 
+			else if (this.transform.position.x < player.transform.position.x - 0.2) 
+			{
+				one = 1;
+				this.transform.eulerAngles = new Vector3(0,0,0);
+				MoveTo = MovementSpeed;
+			} 
+			else
+			{
+				MoveTo = 0;
 			}
+
 		}
 	}
 	public void ApplyDamage (float d) 

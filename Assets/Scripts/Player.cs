@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 	private int GodModeProgress = 0;
 	private float CheatDelay = 0f;
 	private float tmr = 0;
+	private AColor selected_color;
 	enum AColor{ None, Red, Green, Blue};
 
 
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour
 		gos_obs_vis = GameObject.FindGameObjectsWithTag("Obstacles Visible");
 		gos_obs_hid = GameObject.FindGameObjectsWithTag("Obstacles Hidden");
 		gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
-		UpdateColors (AColor.None);
+		UpdateColors(AColor.None);
 	}
 
 	void Update ()
@@ -72,29 +73,36 @@ public class Player : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Alpha1)) 
 			{
-				if(!lr_on)
-					UpdateColors (AColor.Red);
+				UpdateColors(AColor.None);
+				if(selected_color == AColor.Red)
+					selected_color = AColor.None;
 				else
-					UpdateColors (AColor.None);
+					selected_color = AColor.Red;
+				UpdateColors(selected_color);
 			}
 			if (Input.GetKeyDown(KeyCode.Alpha2)) 
 			{
-				if(!lr_on)
-					UpdateColors (AColor.Green);
+				UpdateColors(AColor.None);
+				if(selected_color == AColor.Green)
+					selected_color = AColor.None;
 				else
-					UpdateColors (AColor.None);
+					selected_color = AColor.Green;
+				UpdateColors(selected_color);
 			}
 			if (Input.GetKeyDown(KeyCode.Alpha3)) 
 			{
-				if(!lr_on)
-					UpdateColors (AColor.Blue);
+				UpdateColors(AColor.None);
+				if(selected_color == AColor.Blue)
+					selected_color = AColor.None;
 				else
-					UpdateColors (AColor.None);
+					selected_color = AColor.Blue;
+				UpdateColors(selected_color);
 			}
-			if (LightResource <= 0 && lr_on) 
+			if (LightResource <= 0.5f && lr_on) 
 			{
-				UpdateColors (AColor.None);
+				selected_color = AColor.None;
 				LightResource = 0;
+				UpdateColors(AColor.None);
 			}
 			if(lr_on)
 			{
@@ -192,25 +200,25 @@ public class Player : MonoBehaviour
 			}
 		}
 	}
-	void UpdateColors (AColor selected_color)
+	void UpdateColors (AColor color)
 	{
-		pr.material = Colors[(int)selected_color];
+		pr.material = Colors[(int)color];
 
-		if(selected_color == AColor.Red)
+		if(color == AColor.Red)
 		{
 			print("selected_color == AColor.Red");
 			lr_on = true;
 			damage = 10;
 		}
 
-		else if(selected_color == AColor.Green)
+		else if(color == AColor.Green)
 		{
 			print("selected_color == AColor.Green");
 			lr_on = true;
 			hp = true;
 		}
 
-		else if(selected_color == AColor.Blue)
+		else if(color == AColor.Blue)
 		{
 			print("selected_color == AColor.Blue");
 			lr_on = true;
@@ -251,7 +259,12 @@ public class Player : MonoBehaviour
 		#if UNITY_EDITOR
 		print("Health "+ Health + " Damage " + d);
 		#endif//UNITY_EDITOR
-		this.GetComponent<Rigidbody>().AddExplosionForce(500f,GetClosestObject("Enemy").transform.position,5f);
+		GameObject en = GetClosestObject("Enemy");
+		if(en != null)
+		{
+			Vector3 v = new Vector3(en.transform.position.x,en.transform.position.y + 2f,en.transform.position.z);
+			this.GetComponent<Rigidbody>().AddExplosionForce(500f,v,5f);
+		}
 		if (Health <= 0)
 			Application.LoadLevel(Application.loadedLevel);
 	}
