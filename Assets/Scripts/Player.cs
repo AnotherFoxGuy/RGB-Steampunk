@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 	enum arm_states{ idle, forward, backward};
 	private Rigidbody rb;
 	private float damage = 5;
-	private GameObject go_hp;
 	private	GameObject[] gos_obs_vis;
 	private	GameObject[] gos_obs_hid;
 	private	GameObject[] gos_enemy;
@@ -47,7 +46,6 @@ public class Player : MonoBehaviour
 		Colors = new Material[4]{NullMat,RedMaterial,GreenMaterial,BlueMaterial};
 		arm = GameObject.Find("Arm");
 		arm_orgpos = arm.transform.localPosition;
-		go_hp =  (GameObject)Resources.Load("/Prefabs/yourPrefab");
 		gos_obs_vis = GameObject.FindGameObjectsWithTag("Obstacles Visible");
 		gos_obs_hid = GameObject.FindGameObjectsWithTag("Obstacles Hidden");
 		gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
@@ -68,6 +66,7 @@ public class Player : MonoBehaviour
 		{
 			Health = 50;
 			LightResource = 50;
+			tmr = -1f;
 		}
 		if(arm_state == arm_states.idle)
 		{
@@ -161,12 +160,15 @@ public class Player : MonoBehaviour
 			arm.transform.localPosition = new Vector3(a.x - 0.2f,a.y,a.z);
 			RaycastHit ht;
 			Debug.DrawLine(arm.transform.position,arm.transform.position + transform.InverseTransformDirection(Vector3.left));
-			if(Physics.Raycast(this.transform.position, transform.InverseTransformDirection(Vector3.left),out ht,Mathf.Abs( a.x)))
+			if(Physics.Raycast(this.transform.position, transform.InverseTransformDirection(Vector3.left),out ht,Mathf.Abs(a.x)))
 			{
-				print(""+ ht.collider.name);
 				arm_state = arm_states.backward;
-				arm_hit = ht.collider.gameObject;
-				arm_hit.SendMessage("Stun");
+				if(ht.collider.tag == "Enemy")
+				{
+					print(""+ ht.collider.name);
+					arm_hit = ht.collider.gameObject;
+					arm_hit.SendMessage("Stun");
+				}
 			}
 			if(a.x < -10)
 			{
@@ -297,5 +299,8 @@ public class Player : MonoBehaviour
 		GUI.Box(new Rect(10, 10, 100, 40), Mathf.Floor(Health)+"\n"+ Mathf.Floor(LightResource));
 	}
 
-	void UpdateCheats() {if (CheatDelay > 0) {CheatDelay -= Time.deltaTime;if (CheatDelay <= 0) {CheatDelay = 0f;GodModeProgress = 0;}}if (GodModeProgress == 0 && Input.GetKeyDown(KeyCode.E)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 1 && Input.GetKeyDown(KeyCode.D)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 2 && Input.GetKeyDown(KeyCode.G)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 3 && Input.GetKeyDown(KeyCode.A)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 4 && Input.GetKeyDown(KeyCode.R)) {GodModeProgress = 0;GodMode = !GodMode;print("GodMode On!");}}
+	void UpdateCheats() {if (CheatDelay > 0) {CheatDelay -= Time.deltaTime;if (CheatDelay <= 0) {CheatDelay = 0f;GodModeProgress = 0;}}if (GodModeProgress == 0 && Input.GetKeyDown(KeyCode.E))
+	{GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 1 && Input.GetKeyDown(KeyCode.D)) {GodModeProgress++;CheatDelay = 1f;} 
+	else if (GodModeProgress == 2 && Input.GetKeyDown(KeyCode.G)) {GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 3 && Input.GetKeyDown(KeyCode.A)) 
+	{GodModeProgress++;CheatDelay = 1f;} else if (GodModeProgress == 4 && Input.GetKeyDown(KeyCode.R)) {GodModeProgress = 0;GodMode = !GodMode;print("GodMode On!");}}
 }

@@ -5,12 +5,12 @@ public class CameraFollow : MonoBehaviour
 {
 	public GameObject cam;
 	private Vector3 cam_pos;
-	private Rigidbody rb;
+	//private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () 
 	{
-		rb = GetComponent<Rigidbody>();
+		//rb = GetComponent<Rigidbody>();
 		cam_pos = cam.transform.position;
 		//print(""+cam.name);
 	}

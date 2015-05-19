@@ -124,7 +124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449942, guid: 7764ba30042df7a44878eed0a0c8aef8, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11476450, guid: 7764ba30042df7a44878eed0a0c8aef8, type: 2}
       propertyPath: cam
