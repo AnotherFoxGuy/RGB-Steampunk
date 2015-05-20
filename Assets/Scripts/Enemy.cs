@@ -32,8 +32,10 @@ public class Enemy : MonoBehaviour
 	{
 		if(tmr > -0.1)
 			tmr -= Time.deltaTime; 
+
 		if(tmr < 0 && !can_move)
 			can_move = true;
+
 		if(can_move)
 		{
 			if(EnemyType == e_types.Engineer) UpdateEngineer();
@@ -45,10 +47,12 @@ public class Enemy : MonoBehaviour
 	void UpdateEngineer () 
 	{
 		dis = Vector3.Distance(this.transform.position, player.transform.position);
+
 		if(dis < 10)
 		{
 			active = true;
 		}
+
 		if(active)
 		{
 			if(spibot > 0 && tmr < 0)
@@ -57,6 +61,7 @@ public class Enemy : MonoBehaviour
 				spibot--;
 				tmr = 1f;
 			}
+
 			else if (spibot <=0)
 			{
 				UpdateMove();
@@ -71,11 +76,13 @@ public class Enemy : MonoBehaviour
 	void UpdateWitch () 
 	{
 		dis = Vector3.Distance(this.transform.position, player.transform.position);
+
 		if(dis < 10 && !active)
 		{
 			active = true;
 			UpdateMove();
 		}
+
 		if(active)
 		{
 			if (this.transform.position.x > player.transform.position.x + 0.2) 
@@ -83,11 +90,13 @@ public class Enemy : MonoBehaviour
 				one = -1;
 				this.transform.eulerAngles = new Vector3(0,180,0);
 			} 
+
 			else if (this.transform.position.x < player.transform.position.x - 0.2) 
 			{
 				one = 1;
 				this.transform.eulerAngles = new Vector3(0,0,0);
 			} 
+
 			if(tmr < 0)
 			{
 				GameObject cl = Instantiate(InstantiateGameObject,new Vector3(this.transform.position.x + one,this.transform.position.y ,this.transform.position.z),Quaternion.identity) as GameObject;
@@ -96,6 +105,7 @@ public class Enemy : MonoBehaviour
 				rb.useGravity = false;
 				tmr = 1f;
 			}
+
 			else if(dis > 10)
 			{
 				UpdateMove();
@@ -106,6 +116,7 @@ public class Enemy : MonoBehaviour
 	{
 		UpdateMove();
 		dis = Vector3.Distance(this.transform.position, player.transform.position);
+
 		if(dis < 2.3 && tmr < 0)
 		{
 			player.SendMessage("ApplyDamage", Damage);
@@ -117,10 +128,12 @@ public class Enemy : MonoBehaviour
 		var translation = Time.deltaTime * MoveTo;
 		transform.Translate(translation, 0, 0);
 		Vector3 fall = new Vector3(this.transform.position.x + one,this.transform.position.y,this.transform.position.z);
+
 		if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 2, lm) || !Physics.Raycast(fall, Vector3.down, 1, lm)) 
 		{
 			MoveTo = 0;
 		}				
+
 		else 
 		{
 			if (this.transform.position.x > player.transform.position.x + 0.2) 
@@ -129,12 +142,14 @@ public class Enemy : MonoBehaviour
 				this.transform.eulerAngles = new Vector3(0,180,0);
 				MoveTo = MovementSpeed;
 			} 
+
 			else if (this.transform.position.x < player.transform.position.x - 0.2) 
 			{
 				one = 1;
 				this.transform.eulerAngles = new Vector3(0,0,0);
 				MoveTo = MovementSpeed;
 			} 
+
 			else
 			{
 				MoveTo = 0;
@@ -145,10 +160,13 @@ public class Enemy : MonoBehaviour
 	public void ApplyDamage (float d) 
 	{
 		Health -= d;
+
 		#if UNITY_EDITOR
 		print("Health "+ Health + " Damage " + d);
-		this.GetComponent<Rigidbody>().AddExplosionForce(750f,player.transform.position,5f);
 		#endif//UNITY_EDITOR
+
+		this.GetComponent<Rigidbody>().AddExplosionForce(750f,player.transform.position,5f);
+		
 		if (Health <= 0)
 		{
 			Destroy (this.gameObject);

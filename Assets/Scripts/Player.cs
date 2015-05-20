@@ -57,18 +57,23 @@ public class Player : MonoBehaviour
 	{
 		UpdateArm();
 		UpdateCheats();
+
 		if(tmr > -0.1)
 			tmr -= Time.deltaTime; 
+
 		if(tmr < 0 && !can_use_arm)
 			can_use_arm = true;
+
 		if(LightResource < 10f && !lr_on)
 			LightResource += 0.1f;
+
 		if(GodMode)
 		{
 			Health = 50;
 			LightResource = 50;
 			tmr = -1f;
 		}
+
 		if(arm_state == arm_states.idle)
 		{
 			if (Input.GetKeyDown(KeyCode.Alpha1)) 
@@ -80,6 +85,7 @@ public class Player : MonoBehaviour
 					selected_color = AColor.Red;
 				UpdateColors(selected_color);
 			}
+
 			if (Input.GetKeyDown(KeyCode.Alpha2)) 
 			{
 				UpdateColors(AColor.None);
@@ -89,6 +95,7 @@ public class Player : MonoBehaviour
 					selected_color = AColor.Green;
 				UpdateColors(selected_color);
 			}
+
 			if (Input.GetKeyDown(KeyCode.Alpha3)) 
 			{
 				UpdateColors(AColor.None);
@@ -98,21 +105,25 @@ public class Player : MonoBehaviour
 					selected_color = AColor.Blue;
 				UpdateColors(selected_color);
 			}
+
 			if (LightResource <= 0.5f && lr_on) 
 			{
 				selected_color = AColor.None;
 				LightResource = 0;
 				UpdateColors(AColor.None);
 			}
+
 			if(lr_on)
 			{
 				LightResource -= Time.deltaTime * 10;
 			}
+
 			if(Input.GetButtonDown("Jump") && can_jump && Physics.Raycast(this.transform.position, Vector3.down, 0.1f))
 			{
 				rb.AddForce(transform.TransformDirection(Vector3.up * JumpForceUp));
 				can_jump = false;
 			}
+
 			if(Input.GetButtonDown("Fire1"))
 			{
 				RaycastHit[] rh = Physics.SphereCastAll(this.transform.position,2,Vector3.right,1,lm);
@@ -134,6 +145,7 @@ public class Player : MonoBehaviour
 		{
 			rb.AddForce(Vector3.down * JumpForceDown);
 		}
+
 		if(arm_state == arm_states.idle)
 		{
 			if(Input.GetButton("Right"))
@@ -142,6 +154,7 @@ public class Player : MonoBehaviour
 				if(rb.velocity.x < MaxSpeed)
 					rb.AddForce(Vector3.right * Speed);
 			}
+
 			if(Input.GetButton("Left"))
 			{
 				this.transform.eulerAngles = new Vector3(0,0,0);
@@ -160,6 +173,7 @@ public class Player : MonoBehaviour
 			rb.isKinematic = true;
 			arm_hit = null;
 		}
+
 		if(arm_state == arm_states.forward)
 		{
 			Vector3 a = arm.transform.localPosition;
@@ -168,9 +182,11 @@ public class Player : MonoBehaviour
 			arm.transform.localPosition = new Vector3(a.x - 0.2f,a.y,a.z);
 			RaycastHit ht;
 			Debug.DrawLine(arm.transform.position,arm.transform.position + transform.InverseTransformDirection(Vector3.left));
+
 			if(Physics.Raycast(this.transform.position, transform.InverseTransformDirection(Vector3.left),out ht,Mathf.Abs(a.x)))
 			{
 				arm_state = arm_states.backward;
+
 				if(ht.collider.tag == "Enemy")
 				{
 					print(""+ ht.collider.name);
@@ -178,11 +194,13 @@ public class Player : MonoBehaviour
 					arm_hit.SendMessage("Stun");
 				}
 			}
-			if(a.x < -10)
+
+			if(a.x < -15)
 			{
 				arm_state = arm_states.backward;
 			}
 		}
+
 		if(arm_state == arm_states.backward)
 		{
 			Vector3 a = arm.transform.localPosition;
@@ -192,6 +210,7 @@ public class Player : MonoBehaviour
 				Vector3 ah = arm_hit.transform.position;
 				arm_hit.transform.position = new Vector3(arm.transform.position.x,ah.y,ah.z);
 			}
+
 			if(a.x > arm_orgpos.x - 1.5f)
 			{
 				arm.transform.localPosition = arm_orgpos;
@@ -206,21 +225,21 @@ public class Player : MonoBehaviour
 
 		if(color == AColor.Red)
 		{
-			print("selected_color == AColor.Red");
+			print("color == AColor.Red");
 			lr_on = true;
 			damage = 10;
 		}
 
 		else if(color == AColor.Green)
 		{
-			print("selected_color == AColor.Green");
+			print("color == AColor.Green");
 			lr_on = true;
 			hp = true;
 		}
 
 		else if(color == AColor.Blue)
 		{
-			print("selected_color == AColor.Blue");
+			print("color == AColor.Blue");
 			lr_on = true;
 			gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
 			foreach(GameObject go in gos_obs_vis)
@@ -256,13 +275,16 @@ public class Player : MonoBehaviour
 	public void ApplyDamage (float d) 
 	{
 		Health -= d;
+
 		#if UNITY_EDITOR
 		print("Health "+ Health + " Damage " + d);
 		#endif//UNITY_EDITOR
+
 		GameObject en = GetClosestObject("Enemy");
+
 		if(en != null)
 		{
-			Vector3 v = new Vector3(en.transform.position.x,en.transform.position.y + 2f,en.transform.position.z);
+			Vector3 v = new Vector3(en.transform.position.x,en.transform.position.y + 1f,en.transform.position.z);
 			this.GetComponent<Rigidbody>().AddExplosionForce(500f,v,5f);
 		}
 		if (Health <= 0)
@@ -296,6 +318,7 @@ public class Player : MonoBehaviour
 	{
 		GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
 		GameObject closestObject = GameObject.FindGameObjectWithTag(tag);
+
 		foreach (GameObject obj in objectsWithTag)
 		{
 			//compares distances
