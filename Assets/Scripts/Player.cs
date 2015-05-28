@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
 
 			if(Input.GetButtonDown("Jump") && can_jump && Physics.Raycast(this.transform.position, Vector3.down, 0.1f))
 			{
-				rb.AddForce(transform.TransformDirection(Vector3.up * JumpForceUp));
+				rb.AddForce(Vector3.up * JumpForceUp);
 				can_jump = false;
 			}
 
