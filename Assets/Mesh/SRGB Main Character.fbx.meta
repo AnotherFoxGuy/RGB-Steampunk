@@ -49,6 +49,12 @@ ModelImporter:
     100082: Main
     100084: Main_end
     100086: SRGBMainCharacterIK
+    100088: mustacheBones
+    100090: mustacheM
+    100092: mustacheT
+    100094: mustacheU
+    100096: mustacheU_end
+    100098: Camera
     400000: ArmL
     400002: ArmR
     400004: Back
@@ -93,6 +99,12 @@ ModelImporter:
     400082: Main
     400084: Main_end
     400086: SRGBMainCharacterIK
+    400088: mustacheBones
+    400090: mustacheM
+    400092: mustacheT
+    400094: mustacheU
+    400096: mustacheU_end
+    400098: Camera
     4300000: MainCharacter
     7400000: Walk
     7400002: Idle
