@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: a4f971cc66f14964bb67aa181a576fcc
+timeCreated: 1433755366
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ArmL
+    100002: ArmR
+    100004: Back
+    100006: FootL
+    100008: FootL_end
+    100010: FootR
+    100012: FootR_end
+    100014: Head
+    100016: Head_end
+    100018: LegL
+    100020: LegR
+    100022: ShoulderL
+    100024: ShoulderR
+    100026: //RootNode
+    100028: UArmL
+    100030: UArmL_end
+    100032: UArmR
+    100034: UArmR_end
+    100036: UlegL
+    100038: ULegR
+    100040: ~MainBone
+    100042: MainCharacter
+    100044: SRGBMainCharacter
+    100046: ArmL 1
+    100048: ArmL_end
+    100050: ArmLH
+    100052: ArmLH_end
+    100054: ArmR 1
+    100056: ArmR_end
+    100058: ArmRH
+    100060: ArmRH_end
+    100062: FootL 1
+    100064: FootL_end 1
+    100066: FootLH
+    100068: FootLH_end
+    100070: FootR 1
+    100072: FootR_end 1
+    100074: FootRH
+    100076: FootRH_end
+    100078: LookAt
+    100080: LookAt_end
+    100082: Main
+    100084: Main_end
+    100086: SRGBMainCharacterIK
+    400000: ArmL
+    400002: ArmR
+    400004: Back
+    400006: FootL
+    400008: FootL_end
+    400010: FootR
+    400012: FootR_end
+    400014: Head
+    400016: Head_end
+    400018: LegL
+    400020: LegR
+    400022: ShoulderL
+    400024: ShoulderR
+    400026: //RootNode
+    400028: UArmL
+    400030: UArmL_end
+    400032: UArmR
+    400034: UArmR_end
+    400036: UlegL
+    400038: ULegR
+    400040: ~MainBone
+    400042: MainCharacter
+    400044: SRGBMainCharacter
+    400046: ArmL 1
+    400048: ArmL_end
+    400050: ArmLH
+    400052: ArmLH_end
+    400054: ArmR 1
+    400056: ArmR_end
+    400058: ArmRH
+    400060: ArmRH_end
+    400062: FootL 1
+    400064: FootL_end 1
+    400066: FootLH
+    400068: FootLH_end
+    400070: FootR 1
+    400072: FootR_end 1
+    400074: FootRH
+    400076: FootRH_end
+    400078: LookAt
+    400080: LookAt_end
+    400082: Main
+    400084: Main_end
+    400086: SRGBMainCharacterIK
+    4300000: MainCharacter
+    7400000: Walk
+    7400002: Idle
+    7400004: SRGBMainCharacter|SRGBMainCharacterAction
+    7400006: SRGBMainCharacter|SRGBMainCharacterAction.001
+    7400008: SRGBMainCharacter|Idle
+    7400010: SRGBMainCharacter|Walk
+    9500000: //RootNode
+    13700000: MainCharacter
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SRGBMainCharacter|Idle
+      takeName: SRGBMainCharacter|Idle
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainCharacter
+        weight: 1
+      - path: SRGBMainCharacter
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL/FootL 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL/FootL 1/FootL_end 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR/FootR 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR/FootR 1/FootR_end 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/Head_end
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1/UArmL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1/UArmL/UArmL_end
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1/UArmR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1/UArmR/UArmR_end
+        weight: 1
+      - path: SRGBMainCharacterIK
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmL
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmL/ArmL_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmLH
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmLH/ArmLH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmR
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmR/ArmR_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmRH
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmRH/ArmRH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootL
+        weight: 1
+      - path: SRGBMainCharacterIK/FootL/FootL_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootLH
+        weight: 1
+      - path: SRGBMainCharacterIK/FootLH/FootLH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootR
+        weight: 1
+      - path: SRGBMainCharacterIK/FootR/FootR_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootRH
+        weight: 1
+      - path: SRGBMainCharacterIK/FootRH/FootRH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/LookAt
+        weight: 1
+      - path: SRGBMainCharacterIK/LookAt/LookAt_end
+        weight: 1
+      - path: SRGBMainCharacterIK/Main
+        weight: 1
+      - path: SRGBMainCharacterIK/Main/Main_end
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SRGBMainCharacter|Walk
+      takeName: SRGBMainCharacter|Walk
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainCharacter
+        weight: 1
+      - path: SRGBMainCharacter
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL/FootL 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL/FootL 1/FootL_end 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR/FootR 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR/FootR 1/FootR_end 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/Head_end
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1/UArmL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1/UArmL/UArmL_end
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1/UArmR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1/UArmR/UArmR_end
+        weight: 1
+      - path: SRGBMainCharacterIK
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmL
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmL/ArmL_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmLH
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmLH/ArmLH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmR
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmR/ArmR_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmRH
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmRH/ArmRH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootL
+        weight: 1
+      - path: SRGBMainCharacterIK/FootL/FootL_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootLH
+        weight: 1
+      - path: SRGBMainCharacterIK/FootLH/FootLH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootR
+        weight: 1
+      - path: SRGBMainCharacterIK/FootR/FootR_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootRH
+        weight: 1
+      - path: SRGBMainCharacterIK/FootRH/FootRH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/LookAt
+        weight: 1
+      - path: SRGBMainCharacterIK/LookAt/LookAt_end
+        weight: 1
+      - path: SRGBMainCharacterIK/Main
+        weight: 1
+      - path: SRGBMainCharacterIK/Main/Main_end
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

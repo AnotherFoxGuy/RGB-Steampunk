@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     private float CheatDelay = 0f;
     private float tmr = 0;
     private AColor selected_color;
+    private Animator animator;
     enum AColor { None, Red, Green, Blue };
 
 
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
         pr = Camera.main.gameObject.AddComponent<Projector>();
         pr.fieldOfView = 120;
         rb = this.GetComponent<Rigidbody>();
+        animator = this.GetComponentInChildren<Animator>();
         Colors = new Material[4] { NullMat, RedMaterial, GreenMaterial, BlueMaterial };
         arm = GameObject.Find("Arm");
         arm_orgpos = arm.transform.localPosition;
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         UpdateArm();
+        AnimatorUpdate();
         UpdateCheats();
 
         if (tmr > -0.1)
@@ -139,6 +142,17 @@ public class Player : MonoBehaviour
             }
         }
     }
+    void AnimatorUpdate()
+    {
+        if (Input.GetButton("Right"))
+            animator.SetInteger("Status", 1);
+
+        else if (Input.GetButton("Left"))
+            animator.SetInteger("Status", 1);
+        else
+            animator.SetInteger("Status", 0);
+
+    }
     void FixedUpdate()
     {
         if (!can_jump)
@@ -150,17 +164,24 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButton("Right"))
             {
+                animator.SetInteger("Status", 1);
                 this.transform.eulerAngles = new Vector3(0, 180, 0);
                 if (rb.velocity.x < MaxSpeed)
                     rb.AddForce(Vector3.right * Speed);
             }
 
-            if (Input.GetButton("Left"))
+            else if (Input.GetButton("Left"))
             {
+                animator.SetInteger("Status", 1);
                 this.transform.eulerAngles = new Vector3(0, 0, 0);
                 if (rb.velocity.x > -MaxSpeed)
                     rb.AddForce(Vector3.left * Speed);
             }
+            else
+            {
+                animator.SetInteger("Status", 0);
+            }
+
         }
     }
     void UpdateArm()

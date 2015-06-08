@@ -126,14 +126,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 148914, guid: abc1f06089279b3409623efe73a8438f, type: 2}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 11406550, guid: abc1f06089279b3409623efe73a8438f, type: 2}
       propertyPath: cam
       value: 
       objectReference: {fileID: 1581234331}
+    - target: {fileID: 148914, guid: abc1f06089279b3409623efe73a8438f, type: 2}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abc1f06089279b3409623efe73a8438f, type: 2}
   m_IsPrefabParent: 0

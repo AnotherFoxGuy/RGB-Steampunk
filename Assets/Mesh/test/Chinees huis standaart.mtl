@@ -1,0 +1,71 @@
+# Blender MTL File: 'None'
+# Material Count: 7
+
+newmtl Chinees_huis_standaart
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd -s 0.2 0.2 RooftilesMetal0019_thumblarge.jpg
+
+newmtl Chinees_huis_standaart_-s_0.1_0.1_BrickLargeBlocks0033_1_thumblarge.jpg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd -s 0.1 0.1 BrickLargeBlocks0033_1_thumblarge.jpg
+
+newmtl Chinees_huis_standaart_-s_0.1_0.2_WoodPlanksPainted0163_7_thumblarge.jpg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd -s 0.1 0.2 WoodPlanksPainted0163_7_thumblarge.jpg
+
+newmtl Chinees_huis_standaart_-s_0.5_0.5_bruindak.jpg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd -s 0.5 0.5 bruindak.jpg
+
+newmtl Chinees_huis_standaart_-s_0.5_1.111111_WindowsHouseOld0290_1_thumblarge.jpg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd -s 0.5 1.111111 WindowsHouseOld0290_1_thumblarge.jpg
+
+newmtl Chinees_huis_standaart_-s_0.5_1_DoorsOrnate0394_thumblarge.jpg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd -s 0.5 1 DoorsOrnate0394_thumblarge.jpg
+
+newmtl Chinees_huis_standaart_NONE
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
