@@ -144,11 +144,13 @@ public class Player : MonoBehaviour
     }
     void AnimatorUpdate()
     {
-        if (Input.GetButton("Right"))
+        float speed = Mathf.Abs(this.GetComponent<Rigidbody>().velocity.x);
+        if (!Physics.Raycast(this.transform.position, Vector3.down, 0.1f))
+            animator.SetInteger("Status", 2);
+
+        else if (speed > 5f)
             animator.SetInteger("Status", 1);
 
-        else if (Input.GetButton("Left"))
-            animator.SetInteger("Status", 1);
         else
             animator.SetInteger("Status", 0);
 

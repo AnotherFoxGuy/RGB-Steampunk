@@ -112,6 +112,7 @@ ModelImporter:
     7400006: SRGBMainCharacter|SRGBMainCharacterAction.001
     7400008: SRGBMainCharacter|Idle
     7400010: SRGBMainCharacter|Walk
+    7400012: SRGBMainCharacter|Jump
     9500000: //RootNode
     13700000: MainCharacter
   materials:
@@ -123,7 +124,7 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -134,7 +135,7 @@ ModelImporter:
       name: SRGBMainCharacter|Idle
       takeName: SRGBMainCharacter|Idle
       firstFrame: 0
-      lastFrame: 100
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -182,7 +183,13 @@ ModelImporter:
         weight: 1
       - path: SRGBMainCharacter/~MainBone/Head
         weight: 1
-      - path: SRGBMainCharacter/~MainBone/Head/Head_end
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM/mustacheU
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM/mustacheU/mustacheU_end
         weight: 1
       - path: SRGBMainCharacter/~MainBone/ShoulderL
         weight: 1
@@ -296,7 +303,133 @@ ModelImporter:
         weight: 1
       - path: SRGBMainCharacter/~MainBone/Head
         weight: 1
-      - path: SRGBMainCharacter/~MainBone/Head/Head_end
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM/mustacheU
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM/mustacheU/mustacheU_end
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1/UArmL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderL/ArmL 1/UArmL/UArmL_end
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1/UArmR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/ShoulderR/ArmR 1/UArmR/UArmR_end
+        weight: 1
+      - path: SRGBMainCharacterIK
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmL
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmL/ArmL_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmLH
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmLH/ArmLH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmR
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmR/ArmR_end
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmRH
+        weight: 1
+      - path: SRGBMainCharacterIK/ArmRH/ArmRH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootL
+        weight: 1
+      - path: SRGBMainCharacterIK/FootL/FootL_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootLH
+        weight: 1
+      - path: SRGBMainCharacterIK/FootLH/FootLH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootR
+        weight: 1
+      - path: SRGBMainCharacterIK/FootR/FootR_end
+        weight: 1
+      - path: SRGBMainCharacterIK/FootRH
+        weight: 1
+      - path: SRGBMainCharacterIK/FootRH/FootRH_end
+        weight: 1
+      - path: SRGBMainCharacterIK/LookAt
+        weight: 1
+      - path: SRGBMainCharacterIK/LookAt/LookAt_end
+        weight: 1
+      - path: SRGBMainCharacterIK/Main
+        weight: 1
+      - path: SRGBMainCharacterIK/Main/Main_end
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SRGBMainCharacter|Jump
+      takeName: SRGBMainCharacter|Jump
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainCharacter
+        weight: 1
+      - path: SRGBMainCharacter
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL/FootL 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegL/UlegL/FootL 1/FootL_end 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR/FootR 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Back/LegR/ULegR/FootR 1/FootR_end 1
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM/mustacheU
+        weight: 1
+      - path: SRGBMainCharacter/~MainBone/Head/mustacheT/mustacheM/mustacheU/mustacheU_end
         weight: 1
       - path: SRGBMainCharacter/~MainBone/ShoulderL
         weight: 1
