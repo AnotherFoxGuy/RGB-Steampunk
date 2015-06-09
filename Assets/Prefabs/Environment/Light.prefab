@@ -41,7 +41,7 @@ GameObject:
   - 4: {fileID: 466392}
   - 108: {fileID: 10800198}
   m_Layer: 0
-  m_Name: ~FakeSun
+  m_Name: Directional light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,12 +53,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106846}
-  m_LocalRotation: {x: .0680518076, y: 0, z: 0, w: .997681797}
+  m_LocalRotation: {x: .068028532, y: .0261162687, z: -.00178139005, w: .997339904}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 456314}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &456314
 Transform:
   m_ObjectHideFlags: 1
@@ -69,8 +69,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 428786}
   - {fileID: 466392}
+  - {fileID: 428786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &466392
@@ -84,7 +84,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 456314}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!108 &10800198
 Light:
   m_ObjectHideFlags: 1
@@ -95,7 +95,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: .956862748, b: .839215696, a: 1}
-  m_Intensity: 0
+  m_Intensity: .00100000005
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -127,7 +127,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: .538465977, b: .220588207, a: 1}
-  m_Intensity: .200000003
+  m_Intensity: .400000006
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
