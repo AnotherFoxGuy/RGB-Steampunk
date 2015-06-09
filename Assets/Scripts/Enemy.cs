@@ -3,13 +3,13 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-	public e_types EnemyType = e_types.SpiderBot;
-	public GameObject InstantiateGameObject;
+	public e_types EnemyType = e_types.SpiderBot;    
 	public float MovementSpeed = 10;
 	public float Health = 10f;
 	public float Damage = 1f;
 	
 	private GameObject player;
+    private GameObject insgameobj;
 	private bool active = false;
 	private bool can_move = false;
 	private float MoveTo = 1;
@@ -18,11 +18,13 @@ public class Enemy : MonoBehaviour
 	private int spibot = 5;
 	private int lm = 1 << 9;
 	private float tmr = 0;
-	public enum e_types{Witch,Engineer,SpiderBot};
+    public enum e_types { Witch, Engineer, EngineerUnlimited, SpiderBot };
 
 
 	void Start () 
 	{
+        if (EnemyType == e_types.Witch) insgameobj = Resources.Load("Bold") as GameObject;
+        else insgameobj = Resources.Load("SpiderBot") as GameObject;
 		player = GameObject.FindGameObjectWithTag("Player");
 		lm = ~lm;
 		MoveTo = MovementSpeed;
@@ -39,6 +41,7 @@ public class Enemy : MonoBehaviour
 		if(can_move)
 		{
 			if(EnemyType == e_types.Engineer) UpdateEngineer();
+            else if (EnemyType == e_types.EngineerUnlimited) UpdateEngineerUnlimited();
 			else if(EnemyType == e_types.Witch) UpdateWitch();
 			else UpdateSpiderBot();
 		}
@@ -57,7 +60,7 @@ public class Enemy : MonoBehaviour
 		{
 			if(spibot > 0 && tmr < 0)
 			{
-				Instantiate(InstantiateGameObject,new Vector3(this.transform.position.x + one,this.transform.position.y ,this.transform.position.z),Quaternion.identity);
+                Instantiate(insgameobj, new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z), Quaternion.identity);
 				spibot--;
 				tmr = 1f;
 			}
@@ -73,6 +76,25 @@ public class Enemy : MonoBehaviour
 			}
 		}
 	}
+    void UpdateEngineerUnlimited()
+    {
+        dis = Vector3.Distance(this.transform.position, player.transform.position);
+
+        if (dis < 10)
+        {
+            active = true;
+        }
+
+        if (active)
+        {
+            if (tmr < 0)
+            {
+                Instantiate(insgameobj, new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                spibot--;
+                tmr = 1f;
+            }
+        }
+    }
 	void UpdateWitch () 
 	{
 		dis = Vector3.Distance(this.transform.position, player.transform.position);
@@ -99,7 +121,7 @@ public class Enemy : MonoBehaviour
 
 			if(tmr < 0)
 			{
-				GameObject cl = Instantiate(InstantiateGameObject,new Vector3(this.transform.position.x + one,this.transform.position.y ,this.transform.position.z),Quaternion.identity) as GameObject;
+                GameObject cl = Instantiate(insgameobj, new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z), Quaternion.identity) as GameObject;
 				Rigidbody rb = cl.AddComponent<Rigidbody>();
 				rb.velocity = new Vector3(one*10,0,0);
 				rb.useGravity = false;

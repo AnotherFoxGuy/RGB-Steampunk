@@ -101,8 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e004d9f3298134fa4d9b90c8bcbd5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: 2
-  InstantiateGameObject: {fileID: 0}
+  EnemyType: 3
   MovementSpeed: 1
   Health: 10
   Damage: 1

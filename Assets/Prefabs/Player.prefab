@@ -270,7 +270,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 406332}
   - 54: {fileID: 5478294}
-  - 59: {fileID: 5926162}
   m_Layer: 0
   m_Name: mustacheT
   m_TagString: Untagged
@@ -520,7 +519,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409242}
-  - 54: {fileID: 5460804}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -1443,25 +1441,10 @@ Rigidbody:
   m_GameObject: {fileID: 141332}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: .0500000007
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5460804
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177992}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1473,7 +1456,7 @@ Rigidbody:
   m_GameObject: {fileID: 101902}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: .0500000007
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1491,7 +1474,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1503,45 +1486,13 @@ Rigidbody:
   m_GameObject: {fileID: 152230}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: .0500000007
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!59 &5926162
-HingeJoint:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142238}
-  m_ConnectedBody: {fileID: 5460804}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: .0012482889, y: .524145961, z: .107595637}
-  m_UseSpring: 1
-  m_Spring:
-    spring: 10
-    damper: 1
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 0
-  m_Limits:
-    min: 0
-    max: 0
-    minBounce: 0
-    maxBounce: 0
-    contactDistance: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 1
-  m_EnablePreprocessing: 1
 --- !u!59 &5938356
 HingeJoint:
   m_ObjectHideFlags: 1
@@ -1555,8 +1506,8 @@ HingeJoint:
   m_ConnectedAnchor: {x: 2.98023224e-07, y: .29710722, z: -1.16415322e-09}
   m_UseSpring: 1
   m_Spring:
-    spring: 10
-    damper: 1
+    spring: 20
+    damper: 5
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -1572,7 +1523,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &5966240
 HingeJoint:
@@ -1587,8 +1538,8 @@ HingeJoint:
   m_ConnectedAnchor: {x: -2.01896349e-08, y: .293096274, z: 1.54599547e-07}
   m_UseSpring: 1
   m_Spring:
-    spring: 10
-    damper: 1
+    spring: 20
+    damper: 5
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -1604,7 +1555,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &5997376
 HingeJoint:
@@ -1619,8 +1570,8 @@ HingeJoint:
   m_ConnectedAnchor: {x: -1.14823848e-08, y: .300225735, z: 8.94072087e-08}
   m_UseSpring: 1
   m_Spring:
-    spring: 10
-    damper: 1
+    spring: 20
+    damper: 5
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -1636,7 +1587,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!95 &9578280
 Animator:
@@ -1723,16 +1674,16 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1657ba6eafdc6c6478943f5dbe6f5489, type: 2}
-  - {fileID: 2100000, guid: 7bf29475c003cd241b5fc643b5fd0054, type: 2}
-  - {fileID: 2100000, guid: 77c4f520085c5064b8669578fd5fd416, type: 2}
-  - {fileID: 2100000, guid: 0dcf16da8d5ccf046bd283f42fdfec22, type: 2}
-  - {fileID: 2100000, guid: 5bc9559e13fb7674f8a05ca1139a2752, type: 2}
-  - {fileID: 2100000, guid: c239f4188a8803243a1ed4e5c3a27d33, type: 2}
-  - {fileID: 2100000, guid: e0d0497bf74000c43977aff53f303192, type: 2}
-  - {fileID: 2100000, guid: bcb9d45263b61bc4e85eae6cde85c941, type: 2}
-  - {fileID: 2100000, guid: 28f2380c849629f41b3999be1c04028d, type: 2}
-  - {fileID: 2100000, guid: 926f0c620c46eb14b8847135f4a96931, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
+  - {fileID: 2100000, guid: a5f77f7fe29b4ff449ca7dad293ca1b1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
