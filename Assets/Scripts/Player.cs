@@ -310,8 +310,7 @@ public class Player : MonoBehaviour
         if (en != null)
         {
             Vector3 v = new Vector3(en.transform.position.x, en.transform.position.y + 1f, en.transform.position.z);
-            this.GetComponent<Rigidbody>().AddExplosionForce(500f, v, 5f);
-            UpdateEnemys();
+            this.GetComponent<Rigidbody>().AddExplosionForce(100f, v, 5f);
         }
         if (Health <= 0)
             Application.LoadLevel(Application.loadedLevel);
@@ -356,10 +355,6 @@ public class Player : MonoBehaviour
         return closestObject;
     }
 
-    void UpdateEnemys()
-    {
-       
-    }
     void OnGUI()
     {
 
