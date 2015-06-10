@@ -872,7 +872,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 426992}
@@ -1567,7 +1567,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.14823848e-08, y: .300225735, z: 8.94072087e-08}
+  m_ConnectedAnchor: {x: -1.10166525e-08, y: .300225854, z: 7.45060476e-08}
   m_UseSpring: 1
   m_Spring:
     spring: 20
@@ -1622,8 +1622,9 @@ MonoBehaviour:
   LightResource: 100
   Speed: 100
   MaxSpeed: 10
-  JumpForceUp: 750
+  JumpForceUp: 1000
   JumpForceDown: 20
+  ForceDown: 1
   RedMaterial: {fileID: 2100000, guid: a78a09a940f51114089c6979bced99e1, type: 2}
   GreenMaterial: {fileID: 2100000, guid: 03aabfb40219c534b82eb292af5b1f39, type: 2}
   BlueMaterial: {fileID: 2100000, guid: 02ae02c1625dc05469633ec0783bcb00, type: 2}

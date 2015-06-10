@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float MaxSpeed = 1;
     public float JumpForceUp = 1;
     public float JumpForceDown = 1;
+    public float ForceDown = 1;
     public Material RedMaterial;
     public Material GreenMaterial;
     public Material BlueMaterial;
@@ -168,7 +169,6 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButton("Right"))
             {
-                animator.SetInteger("Status", 1);
                 this.transform.eulerAngles = new Vector3(0, 180, 0);
                 if (rb.velocity.x < MaxSpeed)
                     rb.AddForce(Vector3.right * Speed);
@@ -176,14 +176,13 @@ public class Player : MonoBehaviour
 
             else if (Input.GetButton("Left"))
             {
-                animator.SetInteger("Status", 1);
                 this.transform.eulerAngles = new Vector3(0, 0, 0);
                 if (rb.velocity.x > -MaxSpeed)
                     rb.AddForce(Vector3.left * Speed);
             }
-            else
+            else if (can_jump)
             {
-                animator.SetInteger("Status", 0);
+                rb.AddForce(Vector3.down * ForceDown);
             }
 
         }

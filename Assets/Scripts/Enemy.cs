@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 	private int one = 1;
 	private int spibot = 5;
 	private int lm = 1 << 9;
-	private float tmr = 0;
+	private float tmr = 0.1f;
     public enum e_types { Witch, Engineer, EngineerUnlimited, SpiderBot };
 
 
@@ -28,6 +28,17 @@ public class Enemy : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		lm = ~lm;
 		MoveTo = MovementSpeed;
+        if (this.transform.position.x > player.transform.position.x + 0.2)
+        {
+            one = -1;
+            this.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        else if (this.transform.position.x < player.transform.position.x - 0.2)
+        {
+            one = 1;
+            this.transform.eulerAngles = new Vector3(0, 0, 0);
+        } 
 	}
 
 	void Update () 
@@ -74,6 +85,20 @@ public class Enemy : MonoBehaviour
 					tmr = 1f;
 				}
 			}
+            else
+            {
+                if (this.transform.position.x > player.transform.position.x + 0.2)
+                {
+                    one = -1;
+                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                }
+
+                else if (this.transform.position.x < player.transform.position.x - 0.2)
+                {
+                    one = 1;
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                } 
+            }
 		}
 	}
     void UpdateEngineerUnlimited()
@@ -93,6 +118,21 @@ public class Enemy : MonoBehaviour
                 spibot--;
                 tmr = 1f;
             }
+            else
+            {
+                if (this.transform.position.x > player.transform.position.x + 0.2)
+                {
+                    one = -1;
+                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                }
+
+                else if (this.transform.position.x < player.transform.position.x - 0.2)
+                {
+                    one = 1;
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+            }
+
         }
     }
 	void UpdateWitch () 
