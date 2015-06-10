@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     private float tmr = 0;
     private AColor selected_color;
     private Animator animator;
+    private GameObject[] enemys_count;
     enum AColor { None, Red, Green, Blue };
 
 
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
         gos_obs_vis = GameObject.FindGameObjectsWithTag("Obstacles Visible");
         gos_obs_hid = GameObject.FindGameObjectsWithTag("Obstacles Hidden");
         gos_enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        enemys_count = GameObject.FindGameObjectsWithTag("Enemy");
         UpdateColors(AColor.None);
     }
 
@@ -309,6 +311,7 @@ public class Player : MonoBehaviour
         {
             Vector3 v = new Vector3(en.transform.position.x, en.transform.position.y + 1f, en.transform.position.z);
             this.GetComponent<Rigidbody>().AddExplosionForce(500f, v, 5f);
+            UpdateEnemys();
         }
         if (Health <= 0)
             Application.LoadLevel(Application.loadedLevel);
@@ -353,9 +356,23 @@ public class Player : MonoBehaviour
         return closestObject;
     }
 
+    void UpdateEnemys()
+    {
+       
+    }
     void OnGUI()
     {
-        GUI.Box(new Rect(10, 10, 100, 40), Mathf.Floor(Health) + "\n" + Mathf.Floor(LightResource));
+
+        if (selected_color == AColor.None)
+        {
+            enemys_count = GameObject.FindGameObjectsWithTag("Enemy");
+        }
+        GUI.Box(new Rect(10, 10, 100, 60), Mathf.Floor(Health) + "\n" + Mathf.Floor(LightResource) + "\n" + enemys_count.Length);
+        if (enemys_count.Length == 0)
+        {
+            GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "you won !");
+            Time.timeScale = 0;
+        }
     }
 
     void UpdateCheats()

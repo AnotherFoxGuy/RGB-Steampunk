@@ -188,9 +188,9 @@ public class Enemy : MonoBehaviour
 		#endif//UNITY_EDITOR
 
 		this.GetComponent<Rigidbody>().AddExplosionForce(750f,player.transform.position,5f);
-		
 		if (Health <= 0)
 		{
+            
 			Destroy (this.gameObject);
 			Instantiate(Resources.Load("LightResource"),this.transform.position,Quaternion.identity);
 		}
