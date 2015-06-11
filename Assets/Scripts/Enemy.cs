@@ -227,7 +227,7 @@ public class Enemy : MonoBehaviour
 		print("Health "+ Health + " Damage " + d);
 		#endif//UNITY_EDITOR
 
-		this.GetComponent<Rigidbody>().AddExplosionForce(750f,player.transform.position,5f);
+		this.GetComponent<Rigidbody>().AddExplosionForce(1000f,player.transform.position,5f);
 		if (Health <= 0)
 		{
             

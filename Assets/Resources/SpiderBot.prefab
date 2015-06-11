@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyType: 3
-  MovementSpeed: 1
+  MovementSpeed: 5
   Health: 10
   Damage: 1
 --- !u!1001 &100100000

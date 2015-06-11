@@ -180,7 +180,7 @@ public class Player : MonoBehaviour
                 if (rb.velocity.x > -MaxSpeed)
                     rb.AddForce(Vector3.left * Speed);
             }
-            else if (can_jump)
+            else if (can_jump && Physics.Raycast(this.transform.position, Vector3.down, 0.1f))
             {
                 rb.AddForce(Vector3.down * ForceDown);
             }
@@ -298,7 +298,8 @@ public class Player : MonoBehaviour
     }
     public void ApplyDamage(float d)
     {
-        Health -= d;
+        if (!GodMode)
+            Health -= d;
 
 #if UNITY_EDITOR
         print("Health " + Health + " Damage " + d);
