@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179480}
   m_LocalRotation: {x: 0, y: .70710659, z: 0, w: -.707106948}
-  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalPosition: {x: 27, y: .0170000009, z: 2.329}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 498498}
@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.28999996, y: 3.41000009, z: -6}
+  m_LocalPosition: {x: 2.5, y: 0, z: -6.13999987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480072}
@@ -180,19 +180,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0a30d843b9be62a45b7215974f643da7, type: 2}
-  - {fileID: 2100000, guid: 9a2f54d9dd89e3a499c2c9f65672a557, type: 2}
-  - {fileID: 2100000, guid: 6338bdab3f282804d893e891262bad96, type: 2}
-  - {fileID: 2100000, guid: 42d1c40351efef34e942cee759af77d0, type: 2}
-  - {fileID: 2100000, guid: a1b9064376e6a244489520ef6ed05afb, type: 2}
-  - {fileID: 2100000, guid: 71e2d809d921a864591732b18f5b571d, type: 2}
-  - {fileID: 2100000, guid: b7fbe14d633c2b14ca99576ddef7bf4c, type: 2}
-  - {fileID: 2100000, guid: 0a30d843b9be62a45b7215974f643da7, type: 2}
-  - {fileID: 2100000, guid: 3ed004b4c2d3de144a6e8fd80f701038, type: 2}
-  - {fileID: 2100000, guid: 0a7788dbe226c1840a40362344e8856f, type: 2}
-  - {fileID: 2100000, guid: a7358bb6424ffe8408bc35eed064ee6b, type: 2}
-  - {fileID: 2100000, guid: 6f31c26a74908b14482725a6a703fda4, type: 2}
-  - {fileID: 2100000, guid: 14048ec726c41ec4282a8aa0fae56c27, type: 2}
+  - {fileID: 2100000, guid: 4a3f8a37722fe1540adaa18255dc9549, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -250,7 +238,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110086}
-  m_Mesh: {fileID: 4300064, guid: 45ae33383103f9545847e6a10dd04e1b, type: 3}
+  m_Mesh: {fileID: 4300008, guid: 02765ef6f3fa4f742a29e180cf344327, type: 3}
 --- !u!108 &10888494
 Light:
   m_ObjectHideFlags: 1

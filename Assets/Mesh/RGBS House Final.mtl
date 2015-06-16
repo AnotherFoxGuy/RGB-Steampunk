@@ -1,0 +1,10 @@
+newmtl blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd RGBS House Variation1 UW Large DIFF 1.jpg
+bump RGBS House Variation1 UW Large NRM.jpg -bm 1
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks RGBS House Variation1 UW Large SPEC.jpg
