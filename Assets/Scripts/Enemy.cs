@@ -31,13 +31,13 @@ public class Enemy : MonoBehaviour
         if (this.transform.position.x > player.transform.position.x + 0.2)
         {
             one = -1;
-            this.transform.eulerAngles = new Vector3(0, 180, 0);
+            this.transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
         else if (this.transform.position.x < player.transform.position.x - 0.2)
         {
             one = 1;
-            this.transform.eulerAngles = new Vector3(0, 0, 0);
+            this.transform.eulerAngles = new Vector3(0, 180, 0);
         } 
 	}
 
@@ -90,13 +90,13 @@ public class Enemy : MonoBehaviour
                 if (this.transform.position.x > player.transform.position.x + 0.2)
                 {
                     one = -1;
-                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
                 }
 
                 else if (this.transform.position.x < player.transform.position.x - 0.2)
                 {
                     one = 1;
-                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    this.transform.eulerAngles = new Vector3(0, 180, 0);
                 } 
             }
 		}
@@ -123,13 +123,13 @@ public class Enemy : MonoBehaviour
                 if (this.transform.position.x > player.transform.position.x + 0.2)
                 {
                     one = -1;
-                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
                 }
 
                 else if (this.transform.position.x < player.transform.position.x - 0.2)
                 {
                     one = 1;
-                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    this.transform.eulerAngles = new Vector3(0, 180, 0);
                 }
             }
 
@@ -201,14 +201,14 @@ public class Enemy : MonoBehaviour
 			if (this.transform.position.x > player.transform.position.x + 0.2) 
 			{
 				one = -1;
-				this.transform.eulerAngles = new Vector3(0,180,0);
+                this.transform.eulerAngles = new Vector3(0, 180, 0);
 				MoveTo = MovementSpeed;
 			} 
 
 			else if (this.transform.position.x < player.transform.position.x - 0.2) 
 			{
 				one = 1;
-				this.transform.eulerAngles = new Vector3(0,0,0);
+                this.transform.eulerAngles = new Vector3(0, 0, 0);
 				MoveTo = MovementSpeed;
 			} 
 

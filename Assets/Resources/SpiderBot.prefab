@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 477430}
   - 33: {fileID: 3380830}
   - 23: {fileID: 2308424}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackLeft_Joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 431312}
   - 33: {fileID: 3356976}
   - 23: {fileID: 2336586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontLeft_Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 487538}
   - 33: {fileID: 3391530}
   - 23: {fileID: 2368700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackRight_Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RGBS_Spider5:polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - 4: {fileID: 450652}
   - 33: {fileID: 3358130}
   - 23: {fileID: 2385168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontLeft_Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - 4: {fileID: 434046}
   - 33: {fileID: 3367776}
   - 23: {fileID: 2398972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontRight_Joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428398}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backRight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - 4: {fileID: 494202}
   - 33: {fileID: 3336880}
   - 23: {fileID: 2304642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackRight_Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 457154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backLeft1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413254}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontLeft1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - 4: {fileID: 489116}
   - 33: {fileID: 3337146}
   - 23: {fileID: 2376324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontRight_Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - 4: {fileID: 401444}
   - 33: {fileID: 3341914}
   - 23: {fileID: 2343836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontLeft_Joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420626}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - 4: {fileID: 476376}
   - 33: {fileID: 3389260}
   - 23: {fileID: 2343580}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontRight_Joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - 4: {fileID: 409240}
   - 33: {fileID: 3300540}
   - 23: {fileID: 2322876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackLeft_Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - 4: {fileID: 425058}
   - 33: {fileID: 3341042}
   - 23: {fileID: 2329844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackRight_Joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontLeft2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494248}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backLeft3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - 4: {fileID: 476152}
   - 33: {fileID: 3308448}
   - 23: {fileID: 2377048}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontLeft_Joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 422638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontLeft4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backRightIK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 453144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontRight2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - 4: {fileID: 408332}
   - 33: {fileID: 3366646}
   - 23: {fileID: 2397944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackRight_Joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backLeft4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - 4: {fileID: 471382}
   - 33: {fileID: 3329726}
   - 23: {fileID: 2391748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backLeftIK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backRight4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - 4: {fileID: 419980}
   - 33: {fileID: 3376552}
   - 23: {fileID: 2396292}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontRight4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: transform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   - 4: {fileID: 430150}
   - 33: {fileID: 3388410}
   - 23: {fileID: 2309808}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackLeft_Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 492376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backLeft2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   - 4: {fileID: 434680}
   - 33: {fileID: 3323644}
   - 23: {fileID: 2335812}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackRight_Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - 4: {fileID: 484378}
   - 33: {fileID: 3301688}
   - 23: {fileID: 2343666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontLeft_Joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +556,7 @@ GameObject:
   - 4: {fileID: 492784}
   - 33: {fileID: 3309658}
   - 23: {fileID: 2342472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackLeft_Joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   - 4: {fileID: 495136}
   - 33: {fileID: 3374476}
   - 23: {fileID: 2353770}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackLeft_Joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   - 4: {fileID: 454008}
   - 33: {fileID: 3322520}
   - 23: {fileID: 2320304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackRight_Joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 488104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontRightIK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   - 4: {fileID: 447520}
   - 33: {fileID: 3348412}
   - 23: {fileID: 2302658}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontLeft_Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   - 4: {fileID: 463590}
   - 33: {fileID: 3345840}
   - 23: {fileID: 2336660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontRight_Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +669,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: backRight3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   - 4: {fileID: 445338}
   - 33: {fileID: 3396178}
   - 23: {fileID: 2397702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_BackLeft_Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   - 4: {fileID: 427646}
   - 33: {fileID: 3397390}
   - 23: {fileID: 2374768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_Drill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontLeftIK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ GameObject:
   - 4: {fileID: 435614}
   - 33: {fileID: 3315238}
   - 23: {fileID: 2392800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontRight_Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,9 +754,9 @@ GameObject:
   - 65: {fileID: 6530982}
   - 54: {fileID: 5423570}
   - 114: {fileID: 11441622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,7 +769,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466994}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontLeft3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   - 4: {fileID: 435212}
   - 33: {fileID: 3344058}
   - 23: {fileID: 2377704}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderBot_FrontRight_Joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +801,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 451082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: frontRight3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2301,13 +2301,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191060}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &6530982
 BoxCollider:
@@ -2359,7 +2359,23 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191060}
