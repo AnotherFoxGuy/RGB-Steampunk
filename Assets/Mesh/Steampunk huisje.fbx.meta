@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 29bb568add195574d9c7410b418a5f1c
+timeCreated: 1434440054
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: group
+    100002: pasted__pCube19
+    100004: pCone1
+    100006: pCone2
+    100008: pCube21
+    100010: pCube35
+    100012: pCube50
+    100014: pCube51
+    100016: pCube64
+    100018: pCube65
+    100020: pCube69
+    100022: pCube70
+    100024: pCube71
+    100026: pCube72
+    100028: pCylinder301
+    100030: pCylinder319
+    100032: pCylinder322
+    100034: pCylinder330
+    100036: pCylinder333
+    100038: pCylinder335
+    100040: pCylinder336
+    100042: pCylinder337
+    100044: pCylinder338
+    100046: pCylinder49
+    100048: polySurface83
+    100050: polySurface84
+    100052: polySurface85
+    100054: polySurface86
+    100056: pPipe3
+    100058: pPipe4
+    100060: pPyramid1
+    100062: //RootNode
+    100064: steampunk_stall:steampunk_stall:pCube33
+    100066: steampunk_stall:steampunk_stall:pCube34
+    100068: steampunk_stall:steampunk_stall:transform1
+    100070: steampunk_stall:steampunk_stall:transform10
+    100072: steampunk_stall:steampunk_stall:transform11
+    100074: steampunk_stall:steampunk_stall:transform12
+    100076: steampunk_stall:steampunk_stall:transform13
+    100078: steampunk_stall:steampunk_stall:transform14
+    100080: steampunk_stall:steampunk_stall:transform15
+    100082: steampunk_stall:steampunk_stall:transform16
+    100084: steampunk_stall:steampunk_stall:transform17
+    100086: steampunk_stall:steampunk_stall:transform18
+    100088: steampunk_stall:steampunk_stall:transform19
+    100090: steampunk_stall:steampunk_stall:transform2
+    100092: steampunk_stall:steampunk_stall:transform20
+    100094: steampunk_stall:steampunk_stall:transform21
+    100096: steampunk_stall:steampunk_stall:transform22
+    100098: steampunk_stall:steampunk_stall:transform23
+    100100: steampunk_stall:steampunk_stall:transform24
+    100102: steampunk_stall:steampunk_stall:transform25
+    100104: steampunk_stall:steampunk_stall:transform26
+    100106: steampunk_stall:steampunk_stall:transform27
+    100108: steampunk_stall:steampunk_stall:transform28
+    100110: steampunk_stall:steampunk_stall:transform29
+    100112: steampunk_stall:steampunk_stall:transform3
+    100114: steampunk_stall:steampunk_stall:transform30
+    100116: steampunk_stall:steampunk_stall:transform4
+    100118: steampunk_stall:steampunk_stall:transform5
+    100120: steampunk_stall:steampunk_stall:transform6
+    100122: steampunk_stall:steampunk_stall:transform7
+    100124: steampunk_stall:steampunk_stall:transform8
+    100126: steampunk_stall:steampunk_stall:transform9
+    400000: group
+    400002: pasted__pCube19
+    400004: pCone1
+    400006: pCone2
+    400008: pCube21
+    400010: pCube35
+    400012: pCube50
+    400014: pCube51
+    400016: pCube64
+    400018: pCube65
+    400020: pCube69
+    400022: pCube70
+    400024: pCube71
+    400026: pCube72
+    400028: pCylinder301
+    400030: pCylinder319
+    400032: pCylinder322
+    400034: pCylinder330
+    400036: pCylinder333
+    400038: pCylinder335
+    400040: pCylinder336
+    400042: pCylinder337
+    400044: pCylinder338
+    400046: pCylinder49
+    400048: polySurface83
+    400050: polySurface84
+    400052: polySurface85
+    400054: polySurface86
+    400056: pPipe3
+    400058: pPipe4
+    400060: pPyramid1
+    400062: //RootNode
+    400064: steampunk_stall:steampunk_stall:pCube33
+    400066: steampunk_stall:steampunk_stall:pCube34
+    400068: steampunk_stall:steampunk_stall:transform1
+    400070: steampunk_stall:steampunk_stall:transform10
+    400072: steampunk_stall:steampunk_stall:transform11
+    400074: steampunk_stall:steampunk_stall:transform12
+    400076: steampunk_stall:steampunk_stall:transform13
+    400078: steampunk_stall:steampunk_stall:transform14
+    400080: steampunk_stall:steampunk_stall:transform15
+    400082: steampunk_stall:steampunk_stall:transform16
+    400084: steampunk_stall:steampunk_stall:transform17
+    400086: steampunk_stall:steampunk_stall:transform18
+    400088: steampunk_stall:steampunk_stall:transform19
+    400090: steampunk_stall:steampunk_stall:transform2
+    400092: steampunk_stall:steampunk_stall:transform20
+    400094: steampunk_stall:steampunk_stall:transform21
+    400096: steampunk_stall:steampunk_stall:transform22
+    400098: steampunk_stall:steampunk_stall:transform23
+    400100: steampunk_stall:steampunk_stall:transform24
+    400102: steampunk_stall:steampunk_stall:transform25
+    400104: steampunk_stall:steampunk_stall:transform26
+    400106: steampunk_stall:steampunk_stall:transform27
+    400108: steampunk_stall:steampunk_stall:transform28
+    400110: steampunk_stall:steampunk_stall:transform29
+    400112: steampunk_stall:steampunk_stall:transform3
+    400114: steampunk_stall:steampunk_stall:transform30
+    400116: steampunk_stall:steampunk_stall:transform4
+    400118: steampunk_stall:steampunk_stall:transform5
+    400120: steampunk_stall:steampunk_stall:transform6
+    400122: steampunk_stall:steampunk_stall:transform7
+    400124: steampunk_stall:steampunk_stall:transform8
+    400126: steampunk_stall:steampunk_stall:transform9
+    2300000: steampunk_stall:steampunk_stall:pCube34
+    3300000: steampunk_stall:steampunk_stall:pCube34
+    4300000: steampunk_stall:steampunk_stall:pCube34
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 12.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
