@@ -7,11 +7,16 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: pCylinder6
+    100004: default
     400000: //RootNode
     400002: pCylinder6
+    400004: default
     2300000: pCylinder6
+    2300002: default
     3300000: pCylinder6
+    3300002: default
     4300000: pCylinder6
+    4300002: default
   materials:
     importMaterials: 1
     materialName: 0
@@ -21,6 +26,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
