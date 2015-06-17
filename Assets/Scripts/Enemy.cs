@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 	private float dis;
 	private int one = 1;
 	private int spibot = 5;
-	private int lm = 1 << 9;
+    private int lm = 1 << 9;
 	private float tmr = 0.1f;
     public enum e_types { Witch, Engineer, EngineerUnlimited, SpiderBot };
 
@@ -33,13 +33,13 @@ public class Enemy : MonoBehaviour
         if (this.transform.position.x > player.transform.position.x + 0.2)
         {
             one = -1;
-            this.transform.eulerAngles = new Vector3(0, 0, 0);
+            this.transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
         else if (this.transform.position.x < player.transform.position.x - 0.2)
         {
             one = 1;
-            this.transform.eulerAngles = new Vector3(0, 180, 0);
+            this.transform.eulerAngles = new Vector3(0, 0, 0);
         } 
 	}
 
@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
 		}
 	
 	}
+
 	void UpdateEngineer () 
 	{
 		dis = Vector3.Distance(this.transform.position, player.transform.position);
@@ -74,7 +75,7 @@ public class Enemy : MonoBehaviour
 		{
 			if(spibot > 0 && tmr < 0)
 			{
-                Instantiate(insgameobj, new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                ThrowSpider();
 				spibot--;
 				tmr = 1f;
 			}
@@ -93,13 +94,13 @@ public class Enemy : MonoBehaviour
                 if (this.transform.position.x > player.transform.position.x + 0.2)
                 {
                     one = -1;
-                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    this.transform.eulerAngles = new Vector3(0, 180, 0);
                 }
 
                 else if (this.transform.position.x < player.transform.position.x - 0.2)
                 {
                     one = 1;
-                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
                 } 
             }
 		}
@@ -117,27 +118,32 @@ public class Enemy : MonoBehaviour
         {
             if (tmr < 0)
             {
-                Instantiate(insgameobj, new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-                spibot--;
-                tmr = 1f;
+                ThrowSpider();
+                tmr = 0.5f;
             }
             else
             {
                 if (this.transform.position.x > player.transform.position.x + 0.2)
                 {
                     one = -1;
-                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    this.transform.eulerAngles = new Vector3(0, 180, 0);
                 }
 
                 else if (this.transform.position.x < player.transform.position.x - 0.2)
                 {
                     one = 1;
-                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
                 }
             }
 
         }
     }
+    void ThrowSpider()
+    {
+        Vector3 pos = new Vector3(this.transform.position.x + one, this.transform.position.y + 0.5f, this.transform.position.z);
+        GameObject spy = Instantiate(insgameobj, pos, Quaternion.identity) as GameObject;
+        spy.GetComponent<Rigidbody>().AddExplosionForce(40000f,this.transform.position,50f);
+    } 
 	void UpdateWitch () 
 	{
 		dis = Vector3.Distance(this.transform.position, player.transform.position);
@@ -195,37 +201,41 @@ public class Enemy : MonoBehaviour
 		transform.Translate(translation, 0, 0);
 		Vector3 fall = new Vector3(this.transform.position.x + one,this.transform.position.y,this.transform.position.z);
 
-		if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 1, lm) || !Physics.Raycast(fall, Vector3.down, 1, lm)) 
-		{
+        if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 1, lm) || !Physics.Raycast(fall, Vector3.down, 1, lm))
+        {
             if (animator != null) animator.SetInteger("State", 0);
-			MoveTo = 0;
-		}				
+            MoveTo = 0;
+            if (this.transform.position.x > player.transform.position.x + 0.2)
+                one = -1;
+            else if (this.transform.position.x < player.transform.position.x - 0.2)
+                one = 1;
+        }
 
-		else 
-		{
-			if (this.transform.position.x > player.transform.position.x + 0.2) 
-			{
-				one = -1;
+        else
+        {
+            if (this.transform.position.x > player.transform.position.x + 0.2)
+            {
+                one = -1;
                 if (animator != null) animator.SetInteger("State", 1);
                 this.transform.eulerAngles = new Vector3(0, 180, 0);
-				MoveTo = MovementSpeed;
-			} 
+                MoveTo = MovementSpeed;
+            }
 
-			else if (this.transform.position.x < player.transform.position.x - 0.2) 
-			{
-				one = 1;
+            else if (this.transform.position.x < player.transform.position.x - 0.2)
+            {
+                one = 1;
                 if (animator != null) animator.SetInteger("State", 1);
                 this.transform.eulerAngles = new Vector3(0, 0, 0);
-				MoveTo = MovementSpeed;
-			} 
+                MoveTo = MovementSpeed;
+            }
 
-			else
-			{
+            else
+            {
                 if (animator != null) animator.SetInteger("State", 0);
-				MoveTo = 0;
-			}
+                MoveTo = 0;
+            }
 
-		}
+        }
 	}
 	public void ApplyDamage (float d) 
 	{

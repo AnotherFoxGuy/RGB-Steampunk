@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2313806}
   - 54: {fileID: 5404104}
   - 108: {fileID: 10850824}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: LightResource
   m_TagString: LightResource
   m_Icon: {fileID: 0}

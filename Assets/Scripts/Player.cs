@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private bool lr_on = false;
     private bool hp = false;
     private bool can_jump = true;
-    private Material NullMat;
+    private Material NullMat = null;
     private int lm = 1 << 9;
     private Projector pr;
     private GameObject arm;
