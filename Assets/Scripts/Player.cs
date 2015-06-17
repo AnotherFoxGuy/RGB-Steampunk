@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    public bool morelevels = false;
     public bool GodMode = false;
     public float Health = 100;
     public float LightResource = 100;
@@ -362,16 +361,8 @@ public class Player : MonoBehaviour
         GUI.Box(new Rect(10, 10, 100, 60), Mathf.Floor(Health) + "\n" + Mathf.Floor(LightResource) + "\n" + enemys_count.Length);
         if (enemys_count.Length == 0)
         {
-            if (Application.loadedLevel == 0 && morelevels)
-            {
-                Application.LoadLevel(1);
-            }
-            else
-            {
-                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "you won !");
-                Time.timeScale = 0;
-            }
-
+            GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "you won !");
+            Time.timeScale = 0;
         }
     }
 
