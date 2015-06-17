@@ -301,10 +301,6 @@ public class Player : MonoBehaviour
         if (!GodMode)
             Health -= d;
 
-#if UNITY_EDITOR
-        print("Health " + Health + " Damage " + d);
-#endif//UNITY_EDITOR
-
         GameObject en = GetClosestObject("Enemy");
 
         if (en != null)

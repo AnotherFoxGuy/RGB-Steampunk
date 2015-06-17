@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
 	public float MovementSpeed = 10;
 	public float Health = 10f;
 	public float Damage = 1f;
-	
+
+    private Animator animator;
 	private GameObject player;
     private GameObject insgameobj;
 	private bool active = false;
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
 	{
         if (EnemyType == e_types.Witch) insgameobj = Resources.Load("Bold") as GameObject;
         else insgameobj = Resources.Load("SpiderBot") as GameObject;
+        animator = this.GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		lm = ~lm;
 		MoveTo = MovementSpeed;
@@ -43,6 +45,7 @@ public class Enemy : MonoBehaviour
 
 	void Update () 
 	{
+        animator.SetInteger("State", 0);
 		if(tmr > -0.1)
 			tmr -= Time.deltaTime; 
 
@@ -181,6 +184,7 @@ public class Enemy : MonoBehaviour
 
 		if(dis < 2.3 && tmr < 0)
 		{
+            animator.SetInteger("State",Random.Range(2, 4));
 			player.SendMessage("ApplyDamage", Damage);
 			tmr = 1f;
 		}
