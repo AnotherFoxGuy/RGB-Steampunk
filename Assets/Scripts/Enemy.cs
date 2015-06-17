@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
 	void Update () 
 	{
-        animator.SetInteger("State", 0);
+        if (animator != null) animator.SetInteger("State", 0);
 		if(tmr > -0.1)
 			tmr -= Time.deltaTime; 
 
