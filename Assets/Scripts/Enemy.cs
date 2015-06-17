@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
 	void Update () 
 	{
-        if (animator != null) animator.SetInteger("State", 0);
+       
 		if(tmr > -0.1)
 			tmr -= Time.deltaTime; 
 
@@ -195,8 +195,9 @@ public class Enemy : MonoBehaviour
 		transform.Translate(translation, 0, 0);
 		Vector3 fall = new Vector3(this.transform.position.x + one,this.transform.position.y,this.transform.position.z);
 
-		if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 2, lm) || !Physics.Raycast(fall, Vector3.down, 1, lm)) 
+		if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 1, lm) || !Physics.Raycast(fall, Vector3.down, 1, lm)) 
 		{
+            if (animator != null) animator.SetInteger("State", 0);
 			MoveTo = 0;
 		}				
 
@@ -205,6 +206,7 @@ public class Enemy : MonoBehaviour
 			if (this.transform.position.x > player.transform.position.x + 0.2) 
 			{
 				one = -1;
+                if (animator != null) animator.SetInteger("State", 1);
                 this.transform.eulerAngles = new Vector3(0, 180, 0);
 				MoveTo = MovementSpeed;
 			} 
@@ -212,12 +214,14 @@ public class Enemy : MonoBehaviour
 			else if (this.transform.position.x < player.transform.position.x - 0.2) 
 			{
 				one = 1;
+                if (animator != null) animator.SetInteger("State", 1);
                 this.transform.eulerAngles = new Vector3(0, 0, 0);
 				MoveTo = MovementSpeed;
 			} 
 
 			else
 			{
+                if (animator != null) animator.SetInteger("State", 0);
 				MoveTo = 0;
 			}
 

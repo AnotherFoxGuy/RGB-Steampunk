@@ -186,9 +186,10 @@ ModelImporter:
     4300048: SpiderBot_FrontRight_Leg2
     4300050: SpiderBot_FrontRight_Joint1
     4300052: SpiderBot_FrontRight_Leg1
-    7400000: spiderFinal|Idle
+    7400000: spiderFinal|Walk
     7400002: spiderFinal|Attack1
     7400004: spiderFinal|Attack2
+    7400006: spiderFinal|Idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -467,6 +468,132 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 80
       lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: backLeftIK
+        weight: 1
+      - path: backRightIK
+        weight: 1
+      - path: frontLeftIK
+        weight: 1
+      - path: frontRightIK
+        weight: 1
+      - path: RGBS_Spider5:polySurface1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/backLeft2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/backLeft2/backLeft3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/backLeft2/backLeft3/backLeft4
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/backLeft2/backLeft3/backLeft4/SpiderBot_BackLeft_Leg3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/backLeft2/backLeft3/SpiderBot_BackLeft_Joint3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/backLeft2/SpiderBot_BackLeft_Joint2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/backLeft2/SpiderBot_BackLeft_Joint2/SpiderBot_BackLeft_Leg2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/SpiderBot_BackLeft_Joint1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backLeft1/SpiderBot_BackLeft_Joint1/SpiderBot_BackLeft_Leg1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/backRight2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/backRight2/backRight3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/backRight2/backRight3/backRight4
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/backRight2/backRight3/backRight4/SpiderBot_BackRight_Leg3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/backRight2/backRight3/SpiderBot_BackRight_Joint3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/backRight2/SpiderBot_BackRight_Joint2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/backRight2/SpiderBot_BackRight_Joint2/SpiderBot_BackRight_Leg2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/SpiderBot_BackRight_Joint1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/backRight1/SpiderBot_BackRight_Joint1/SpiderBot_BackRight_Leg1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/frontLeft2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/frontLeft2/frontLeft3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/frontLeft2/frontLeft3/frontLeft4
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/frontLeft2/frontLeft3/frontLeft4/SpiderBot_FrontLeft_Leg3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/frontLeft2/frontLeft3/SpiderBot_FrontLeft_Joint3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/frontLeft2/SpiderBot_FrontLeft_Joint2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/frontLeft2/SpiderBot_FrontLeft_Joint2/SpiderBot_FrontLeft_Leg2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/SpiderBot_FrontLeft_Joint1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontLeft1/SpiderBot_FrontLeft_Joint1/SpiderBot_FrontLeft_Leg1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/frontRight2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/frontRight2/frontRight3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/frontRight2/frontRight3/frontRight4
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/frontRight2/frontRight3/frontRight4/SpiderBot_FrontRight_Leg3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/frontRight2/frontRight3/SpiderBot_FrontRight_Joint3
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/frontRight2/SpiderBot_FrontRight_Joint2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/frontRight2/SpiderBot_FrontRight_Joint2/SpiderBot_FrontRight_Leg2
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/SpiderBot_FrontRight_Joint1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/frontRight1/SpiderBot_FrontRight_Joint1/SpiderBot_FrontRight_Leg1
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/SpiderBot_Block
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/SpiderBot_Body/SpiderBot_Block/SpiderBot_Drill
+        weight: 1
+      - path: RGBS_Spider5:polySurface1/transform1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: spiderFinal|Walk
+      takeName: Take 001
+      firstFrame: 72
+      lastFrame: 82
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
