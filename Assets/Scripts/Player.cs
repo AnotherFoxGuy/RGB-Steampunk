@@ -303,7 +303,7 @@ public class Player : MonoBehaviour
 
         GameObject en = GetClosestObject("Enemy");
 
-        if (en != null)
+        if (en != null && selected_color != AColor.Red)
         {
             Vector3 v = new Vector3(en.transform.position.x, en.transform.position.y + 1f, en.transform.position.z);
             this.GetComponent<Rigidbody>().AddExplosionForce(100f, v, 5f);
@@ -320,13 +320,13 @@ public class Player : MonoBehaviour
             {
                 if (!hp)
                 {
-                    LightResource += 50;
+                    LightResource += 10;
                     if (LightResource > 100)
                         LightResource = 100;
                 }
                 else
                 {
-                    Health += 50;
+                    Health += 10;
                     if (Health > 100)
                         Health = 100;
                 }
@@ -353,7 +353,6 @@ public class Player : MonoBehaviour
 
     void OnGUI()
     {
-
         if (selected_color == AColor.None)
         {
             enemys_count = GameObject.FindGameObjectsWithTag("Enemy");
