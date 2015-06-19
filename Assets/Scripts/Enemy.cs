@@ -170,6 +170,7 @@ public class Enemy : MonoBehaviour
 
             if (tmr < 0)
             {
+                animator.SetInteger("State", 2);
                 GameObject cl = Instantiate(insgameobj, new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z), Quaternion.identity) as GameObject;
                 Rigidbody rb = cl.AddComponent<Rigidbody>();
                 rb.velocity = new Vector3(one * 10, 0, 0);

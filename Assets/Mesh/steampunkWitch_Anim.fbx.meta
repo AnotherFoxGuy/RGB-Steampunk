@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: cbfe8524ac01f19438f4896759c2771a
+timeCreated: 1434700730
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: head_Joint
+    100002: hip_Joint
+    100004: leftArmIK
+    100006: leftFoot_Joint
+    100008: leftForearm_Joint
+    100010: leftHand_Joint
+    100012: leftLeg_Joint
+    100014: leftShoulder_Joint
+    100016: neck_Joint
+    100018: RightArmIK
+    100020: rightFoot_Joint
+    100022: rightForearm_Joint
+    100024: rightHand_Joint
+    100026: rightLeg_Joint
+    100028: rightShoulder_Joint
+    100030: spine1_Joint
+    100032: spine2_Joint
+    100034: //RootNode
+    100036: Witch
+    400000: head_Joint
+    400002: hip_Joint
+    400004: leftArmIK
+    400006: leftFoot_Joint
+    400008: leftForearm_Joint
+    400010: leftHand_Joint
+    400012: leftLeg_Joint
+    400014: leftShoulder_Joint
+    400016: neck_Joint
+    400018: RightArmIK
+    400020: rightFoot_Joint
+    400022: rightForearm_Joint
+    400024: rightHand_Joint
+    400026: rightLeg_Joint
+    400028: rightShoulder_Joint
+    400030: spine1_Joint
+    400032: spine2_Joint
+    400034: //RootNode
+    400036: Witch
+    4300000: Witch
+    7400000: steampunkWitch_Anim|Idle
+    7400002: steampunkWitch_Anim|Atack
+    7400004: steampunkWitch_Anim|Walk
+    9500000: //RootNode
+    13700000: Witch
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: steampunkWitch_Anim|Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hip_Joint
+        weight: 1
+      - path: hip_Joint/leftArmIK
+        weight: 1
+      - path: hip_Joint/leftLeg_Joint
+        weight: 1
+      - path: hip_Joint/leftLeg_Joint/leftFoot_Joint
+        weight: 1
+      - path: hip_Joint/RightArmIK
+        weight: 1
+      - path: hip_Joint/rightLeg_Joint
+        weight: 1
+      - path: hip_Joint/rightLeg_Joint/rightFoot_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint/leftForearm_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint/leftForearm_Joint/leftHand_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/neck_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/neck_Joint/head_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint/rightForearm_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint/rightForearm_Joint/rightHand_Joint
+        weight: 1
+      - path: Witch
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: steampunkWitch_Anim|Atack
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hip_Joint
+        weight: 1
+      - path: hip_Joint/leftArmIK
+        weight: 1
+      - path: hip_Joint/leftLeg_Joint
+        weight: 1
+      - path: hip_Joint/leftLeg_Joint/leftFoot_Joint
+        weight: 1
+      - path: hip_Joint/RightArmIK
+        weight: 1
+      - path: hip_Joint/rightLeg_Joint
+        weight: 1
+      - path: hip_Joint/rightLeg_Joint/rightFoot_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint/leftForearm_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint/leftForearm_Joint/leftHand_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/neck_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/neck_Joint/head_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint/rightForearm_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint/rightForearm_Joint/rightHand_Joint
+        weight: 1
+      - path: Witch
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: steampunkWitch_Anim|Walk
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 170
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hip_Joint
+        weight: 1
+      - path: hip_Joint/leftArmIK
+        weight: 1
+      - path: hip_Joint/leftLeg_Joint
+        weight: 1
+      - path: hip_Joint/leftLeg_Joint/leftFoot_Joint
+        weight: 1
+      - path: hip_Joint/RightArmIK
+        weight: 1
+      - path: hip_Joint/rightLeg_Joint
+        weight: 1
+      - path: hip_Joint/rightLeg_Joint/rightFoot_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint/leftForearm_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/leftShoulder_Joint/leftForearm_Joint/leftHand_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/neck_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/neck_Joint/head_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint/rightForearm_Joint
+        weight: 1
+      - path: hip_Joint/spine1_Joint/spine2_Joint/rightShoulder_Joint/rightForearm_Joint/rightHand_Joint
+        weight: 1
+      - path: Witch
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
