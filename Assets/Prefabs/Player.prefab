@@ -1734,7 +1734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0861fd0c413029d459d90e595de6e60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GodMode: 1
+  GodMode: 0
   Health: 100
   LightResource: 100
   Speed: 100
@@ -1875,7 +1875,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: GodMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 176338}
