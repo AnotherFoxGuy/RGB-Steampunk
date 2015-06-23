@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private bool can_jump = true;
     private Material NullMat = null;
     private int lm = 1 << 9;
+    private LineRenderer lr;
     private Projector pr;
     private GameObject arm;
     private GameObject arm_hit;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
         pr = Camera.main.gameObject.AddComponent<Projector>();
         pr.fieldOfView = 120;
         rb = this.GetComponent<Rigidbody>();
+        lr = this.GetComponentInChildren<LineRenderer>();
         animator = this.GetComponentInChildren<Animator>();
         Colors = new Material[4] { NullMat, RedMaterial, GreenMaterial, BlueMaterial };
         arm = GameObject.Find("Arm");
@@ -203,7 +205,7 @@ public class Player : MonoBehaviour
             Vector3 a = arm.transform.localPosition;
             Vector3 p = this.transform.position;
             p.y += 0.5f;
-            arm.transform.localPosition = new Vector3(a.x - 0.2f, a.y, a.z);
+            arm.transform.localPosition = new Vector3(a.x - 0.2f, a.y, a.z);        
             RaycastHit ht;
             Debug.DrawLine(arm.transform.position, arm.transform.position + transform.InverseTransformDirection(Vector3.left));
 
@@ -223,10 +225,12 @@ public class Player : MonoBehaviour
             {
                 arm_state = arm_states.backward;
             }
+            lr.SetPosition(0, arm.transform.localPosition);
         }
 
         if (arm_state == arm_states.backward)
         {
+            
             Vector3 a = arm.transform.localPosition;
             arm.transform.localPosition = new Vector3(a.x + 0.2f, a.y, a.z);
             if (arm_hit != null)
@@ -241,6 +245,7 @@ public class Player : MonoBehaviour
                 arm_state = arm_states.idle;
                 rb.isKinematic = false;
             }
+            lr.SetPosition(0, arm.transform.localPosition);
         }
     }
     void UpdateColors(AColor color)
