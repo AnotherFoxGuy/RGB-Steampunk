@@ -1,38 +1,41 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Throwable : MonoBehaviour
 {
-
-    public thing throwable;
-    private GameObject player;
-
-    public enum thing { bold, SpiderSphere };
-
-    void Start()
+    public enum ThrowableObject
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        Bold,
+        SpiderSphere
     }
-    void Update()
+
+    private GameObject _player;
+
+    public ThrowableObject CurrentObject;
+
+    private void Start()
     {
-        float dis = Mathf.Abs(this.transform.position.x - player.transform.position.x);
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
+        var dis = Mathf.Abs(transform.position.x - _player.transform.position.x);
         if (dis > 25)
-        {
-            Destroy(this.gameObject);
-        }
+            Destroy(gameObject);
     }
-    void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (throwable == thing.bold)
+        if (CurrentObject == ThrowableObject.Bold)
         {
-            if (collision.gameObject.tag == "Player")
-                player.SendMessage("ApplyDamage", 1);
-            Destroy(this.gameObject);
+            if (collision.gameObject.CompareTag("Player"))
+                _player.SendMessage("ApplyDamage", 1);
+            Destroy(gameObject);
         }
         else
         {
-            Instantiate(Resources.Load("SpiderBot"), this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            Instantiate(Resources.Load("SpiderBot"), transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

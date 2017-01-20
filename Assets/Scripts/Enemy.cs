@@ -1,262 +1,263 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-    public e_types EnemyType = e_types.SpiderBot;
-    public float MovementSpeed = 10;
-    public float Health = 10f;
+    public enum ETypes
+    {
+        Witch,
+        Engineer,
+        EngineerUnlimited,
+        SpiderBot
+    }
+
+    private bool _active;
+
+    private Animator _animator;
+    private bool _canMove;
     public float Damage = 1f;
-
-    private Animator animator;
-    private GameObject player;
-    private GameObject insgameobj;
-    private bool active = false;
-    private bool can_move = false;
-    private float MoveTo = 1;
-    private float dis;
-    private int one = 1;
-    private int spibot = 5;
+    private float _dis;
+    public ETypes EnemyType = ETypes.SpiderBot;
+    public float Health = 10f;
+    private GameObject _insgameobj;
     private int lm = 1 << 9;
-    private float tmr = 0.1f;
-    public enum e_types { Witch, Engineer, EngineerUnlimited, SpiderBot };
+    public float MovementSpeed = 10;
+    private float _moveTo = 1;
+    private int _one = 1;
+    private GameObject _player;
+    private int _spibot = 5;
+    private float _tmr = 0.1f;
 
 
-    void Start()
+    private void Start()
     {
-        if (EnemyType == e_types.Witch) insgameobj = Resources.Load("Bold") as GameObject;
-        else insgameobj = Resources.Load("SpiderSphere") as GameObject;
-        animator = this.GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        if (EnemyType == ETypes.Witch) _insgameobj = Resources.Load("Bold") as GameObject;
+        else _insgameobj = Resources.Load("SpiderSphere") as GameObject;
+        _animator = GetComponent<Animator>();
+        _player = GameObject.FindGameObjectWithTag("Player");
         lm = ~lm;
-        MoveTo = MovementSpeed;
-        if (this.transform.position.x > player.transform.position.x + 0.2)
+        _moveTo = MovementSpeed;
+        if (transform.position.x > _player.transform.position.x + 0.2)
         {
-            one = -1;
-            this.transform.eulerAngles = new Vector3(0, 180, 0);
+            _one = -1;
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
-        else if (this.transform.position.x < player.transform.position.x - 0.2)
+        else if (transform.position.x < _player.transform.position.x - 0.2)
         {
-            one = 1;
-            this.transform.eulerAngles = new Vector3(0, 0, 0);
+            _one = 1;
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 
-    void Update()
+    private void Update()
     {
+        if (_tmr > -0.1)
+            _tmr -= Time.deltaTime;
 
-        if (tmr > -0.1)
-            tmr -= Time.deltaTime;
+        if (_tmr < 0 && !_canMove)
+            _canMove = true;
 
-        if (tmr < 0 && !can_move)
-            can_move = true;
-
-        if (can_move)
-        {
-            if (EnemyType == e_types.Engineer) UpdateEngineer();
-            else if (EnemyType == e_types.EngineerUnlimited) UpdateEngineerUnlimited();
-            else if (EnemyType == e_types.Witch) UpdateWitch();
+        if (_canMove)
+            if (EnemyType == ETypes.Engineer) UpdateEngineer();
+            else if (EnemyType == ETypes.EngineerUnlimited) UpdateEngineerUnlimited();
+            else if (EnemyType == ETypes.Witch) UpdateWitch();
             else UpdateSpiderBot();
-        }
-
     }
 
-    void UpdateEngineer()
+    private void UpdateEngineer()
     {
-        dis = Vector3.Distance(this.transform.position, player.transform.position);
+        _dis = Vector3.Distance(transform.position, _player.transform.position);
 
-        if (dis < 10)
-        {
-            active = true;
-        }
+        if (_dis < 10)
+            _active = true;
 
-        if (active)
-        {
-            if (spibot > 0 && tmr < 0)
+        if (_active)
+            if (_spibot > 0 && _tmr < 0)
             {
                 ThrowSpider();
-                spibot--;
-                tmr = 1f;
+                _spibot--;
+                _tmr = 1f;
             }
 
-            else if (spibot <= 0)
+            else if (_spibot <= 0)
             {
                 UpdateMove();
-                if (dis < 2.3 && tmr < 0)
+                if (_dis < 2.3 && _tmr < 0)
                 {
-                    player.SendMessage("ApplyDamage", Damage);
-                    tmr = 1f;
+                    _player.SendMessage("ApplyDamage", Damage);
+                    _tmr = 1f;
                 }
             }
             else
             {
-                if (this.transform.position.x > player.transform.position.x + 0.2)
+                if (transform.position.x > _player.transform.position.x + 0.2)
                 {
-                    one = -1;
-                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                    _one = -1;
+                    transform.eulerAngles = new Vector3(0, 180, 0);
                 }
 
-                else if (this.transform.position.x < player.transform.position.x - 0.2)
+                else if (transform.position.x < _player.transform.position.x - 0.2)
                 {
-                    one = 1;
-                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    _one = 1;
+                    transform.eulerAngles = new Vector3(0, 0, 0);
                 }
             }
-        }
     }
-    void UpdateEngineerUnlimited()
+
+    private void UpdateEngineerUnlimited()
     {
-        dis = Vector3.Distance(this.transform.position, player.transform.position);
+        _dis = Vector3.Distance(transform.position, _player.transform.position);
 
-        if (dis < 10)
-        {
-            active = true;
-        }
+        if (_dis < 10)
+            _active = true;
 
-        if (active)
-        {
-            if (tmr < 0)
+        if (_active)
+            if (_tmr < 0)
             {
                 ThrowSpider();
-                tmr = 0.5f;
+                _tmr = 0.5f;
             }
             else
             {
-                if (this.transform.position.x > player.transform.position.x + 0.2)
+                if (transform.position.x > _player.transform.position.x + 0.2)
                 {
-                    one = -1;
-                    this.transform.eulerAngles = new Vector3(0, 180, 0);
+                    _one = -1;
+                    transform.eulerAngles = new Vector3(0, 180, 0);
                 }
 
-                else if (this.transform.position.x < player.transform.position.x - 0.2)
+                else if (transform.position.x < _player.transform.position.x - 0.2)
                 {
-                    one = 1;
-                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    _one = 1;
+                    transform.eulerAngles = new Vector3(0, 0, 0);
                 }
             }
-
-        }
     }
-    void ThrowSpider()
-    {
-        Vector3 pos = new Vector3(this.transform.position.x + one, this.transform.position.y + 0.5f, this.transform.position.z);
-        GameObject spy = Instantiate(insgameobj, pos, Quaternion.identity) as GameObject;
-        spy.GetComponent<Rigidbody>().AddExplosionForce(40000f, this.transform.position, 50f);
-    }
-    void UpdateWitch()
-    {
-        dis = Vector3.Distance(this.transform.position, player.transform.position);
 
-        if (dis < 10 && !active)
+    private void ThrowSpider()
+    {
+        var pos = new Vector3(transform.position.x + _one, transform.position.y + 0.5f, transform.position.z);
+        var spy = Instantiate(_insgameobj, pos, Quaternion.identity);
+        spy.GetComponent<Rigidbody>().AddExplosionForce(40000f, transform.position, 50f);
+    }
+
+    private void UpdateWitch()
+    {
+        _dis = Vector3.Distance(transform.position, _player.transform.position);
+
+        if (_dis < 10 && !_active)
         {
-            active = true;
+            _active = true;
             UpdateMove();
         }
 
-        if (active)
+        if (_active)
         {
-            if (this.transform.position.x > player.transform.position.x + 0.2)
+            if (transform.position.x > _player.transform.position.x + 0.2)
             {
-                one = -1;
-                this.transform.eulerAngles = new Vector3(0, 180, 0);
+                _one = -1;
+                transform.eulerAngles = new Vector3(0, 180, 0);
             }
 
-            else if (this.transform.position.x < player.transform.position.x - 0.2)
+            else if (transform.position.x < _player.transform.position.x - 0.2)
             {
-                one = 1;
-                this.transform.eulerAngles = new Vector3(0, 0, 0);
+                _one = 1;
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
 
-            if (tmr < 0)
+            if (_tmr < 0)
             {
-                animator.SetInteger("State", 2);
-                GameObject cl = Instantiate(insgameobj, new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z), Quaternion.identity) as GameObject;
-                Rigidbody rb = cl.AddComponent<Rigidbody>();
-                rb.velocity = new Vector3(one * 10, 0, 0);
+                _animator.SetInteger("State", 2);
+                var cl = Instantiate(_insgameobj,
+                    new Vector3(transform.position.x + _one, transform.position.y, transform.position.z),
+                    Quaternion.identity);
+                var rb = cl.AddComponent<Rigidbody>();
+                rb.velocity = new Vector3(_one * 10, 0, 0);
                 rb.useGravity = false;
-                tmr = 1f;
+                _tmr = 1f;
             }
 
-            else if (dis > 10)
+            else if (_dis > 10)
             {
                 UpdateMove();
             }
         }
     }
-    void UpdateSpiderBot()
+
+    private void UpdateSpiderBot()
     {
         UpdateMove();
-        dis = Vector3.Distance(this.transform.position, player.transform.position);
+        _dis = Vector3.Distance(transform.position, _player.transform.position);
 
-        if (dis < 2.3 && tmr < 0)
+        if (_dis < 2.3 && _tmr < 0)
         {
-            animator.SetInteger("State", Random.Range(2, 4));
-            player.SendMessage("ApplyDamage", Damage);
-            tmr = 1f;
+            _animator.SetInteger("State", Random.Range(2, 4));
+            _player.SendMessage("ApplyDamage", Damage);
+            _tmr = 1f;
         }
     }
-    void UpdateMove()
-    {
-        var translation = Time.deltaTime * MoveTo;
-        transform.Translate(translation, 0, 0);
-        Vector3 fall = new Vector3(this.transform.position.x + one, this.transform.position.y, this.transform.position.z);
 
-        if (Physics.Raycast(this.transform.position, new Vector3(one, 0, 0), 1, lm) || !Physics.Raycast(fall, Vector3.down, 1, lm))
+    private void UpdateMove()
+    {
+        var translation = Time.deltaTime * _moveTo;
+        transform.Translate(translation, 0, 0);
+        var fall = new Vector3(transform.position.x + _one, transform.position.y, transform.position.z);
+
+        if (Physics.Raycast(transform.position, new Vector3(_one, 0, 0), 1, lm) ||
+            !Physics.Raycast(fall, Vector3.down, 1, lm))
         {
-            if (animator != null) animator.SetInteger("State", 0);
-            MoveTo = 0;
-            if (this.transform.position.x > player.transform.position.x + 0.2)
-                one = -1;
-            else if (this.transform.position.x < player.transform.position.x - 0.2)
-                one = 1;
+            if (_animator != null) _animator.SetInteger("State", 0);
+            _moveTo = 0;
+            if (transform.position.x > _player.transform.position.x + 0.2)
+                _one = -1;
+            else if (transform.position.x < _player.transform.position.x - 0.2)
+                _one = 1;
         }
 
         else
         {
-            if (this.transform.position.x > player.transform.position.x + 0.2)
+            if (transform.position.x > _player.transform.position.x + 0.2)
             {
-                one = -1;
-                if (animator != null) animator.SetInteger("State", 1);
-                this.transform.eulerAngles = new Vector3(0, 180, 0);
-                MoveTo = MovementSpeed;
+                _one = -1;
+                if (_animator != null) _animator.SetInteger("State", 1);
+                transform.eulerAngles = new Vector3(0, 180, 0);
+                _moveTo = MovementSpeed;
             }
 
-            else if (this.transform.position.x < player.transform.position.x - 0.2)
+            else if (transform.position.x < _player.transform.position.x - 0.2)
             {
-                one = 1;
-                if (animator != null) animator.SetInteger("State", 1);
-                this.transform.eulerAngles = new Vector3(0, 0, 0);
-                MoveTo = MovementSpeed;
+                _one = 1;
+                if (_animator != null) _animator.SetInteger("State", 1);
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                _moveTo = MovementSpeed;
             }
 
             else
             {
-                if (animator != null) animator.SetInteger("State", 0);
-                MoveTo = 0;
+                if (_animator != null) _animator.SetInteger("State", 0);
+                _moveTo = 0;
             }
-
         }
     }
+
     public void ApplyDamage(float d)
     {
         Health -= d;
 
 #if UNITY_EDITOR
         print("Health " + Health + " Damage " + d);
-#endif//UNITY_EDITOR
+#endif //UNITY_EDITOR
 
-        this.GetComponent<Rigidbody>().AddExplosionForce(1000f, player.transform.position, 5f);
+        GetComponent<Rigidbody>().AddExplosionForce(1000f, _player.transform.position, 5f);
         if (Health <= 0)
         {
-
-            Destroy(this.gameObject);
-            Instantiate(Resources.Load("LightResource"), this.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            Instantiate(Resources.Load("LightResource"), transform.position, Quaternion.identity);
         }
     }
+
     public void Stun()
     {
-        can_move = false;
-        tmr = 10;
+        _canMove = false;
+        _tmr = 10;
     }
 }

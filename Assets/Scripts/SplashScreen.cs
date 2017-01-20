@@ -1,27 +1,20 @@
-﻿using UnityEngine;
-using UnityEngine.Analytics;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SplashScreen : MonoBehaviour
 {
+    public float fadeTime = 1.0f;
 
     public Material[] Logos;
+    public int Nextscene = 1;
 
-    public float fadeTime = 1.0f;
-    public int nextscene = 1;
-
-    enum Fade
+    private IEnumerator Start()
     {
-        In, Out
-    }
-    IEnumerator Start()
-    {
-        foreach (Material m in Logos)
+        foreach (var m in Logos)
             m.color = new Color(1, 1, 1, 0);
 
-        foreach (Material m in Logos)
+        foreach (var m in Logos)
         {
             yield return new WaitForSeconds(0.5f);
             yield return StartCoroutine(Fademat(m, fadeTime, Fade.In));
@@ -30,18 +23,18 @@ public class SplashScreen : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 #if UNITY_EDITOR
-        foreach (Material m in Logos)
+        foreach (var m in Logos)
             m.color = new Color(1, 1, 1, 1);
-#endif//UNITY_EDITOR
-        Application.LoadLevel(nextscene);
+#endif //UNITY_EDITOR
+        SceneManager.LoadScene(Nextscene);
     }
 
-    IEnumerator Fademat(Material curentmat, float timer, Fade fadeType)
+    private IEnumerator Fademat(Material curentmat, float timer, Fade fadeType)
     {
-        float start = fadeType == Fade.In ? 0.0f : 1.0f;
-        float end = fadeType == Fade.In ? 1.0f : 0.0f;
-        float i = 0.0f;
-        float step = 1.0f / timer;
+        var start = fadeType == Fade.In ? 0.0f : 1.0f;
+        var end = fadeType == Fade.In ? 1.0f : 0.0f;
+        var i = 0.0f;
+        var step = 1.0f / timer;
         while (i < 1.0f)
         {
             i += step * Time.deltaTime;
@@ -51,10 +44,17 @@ public class SplashScreen : MonoBehaviour
             yield return null;
         }
     }
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.anyKeyDown)
-            Application.LoadLevel(nextscene);
+            SceneManager.LoadScene(Nextscene);
+    }
+
+    private enum Fade
+    {
+        In,
+        Out
     }
 }
